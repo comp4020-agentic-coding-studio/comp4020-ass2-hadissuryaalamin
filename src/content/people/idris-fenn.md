@@ -1,17 +1,25 @@
 ---
 title: Idris Fenn
 description:
-  A tutor working across the course's first reviews and the practical work that
-  follows them.
-affiliation: Slop University School of Invented Disciplines
-role: tutor
+  Teaches week 7, the knife — blade geometry, sharpening and honing
+  schedules, and the grip and cuts that follow from them.
+affiliation: Slop University, Department of Cutlery and Edge Studies
+role: teacher
 email: idris.fenn@slop.university
-contact: Ask during sessions, or email when a question cannot wait until the next one.
-photo: ./idris-fenn.avif
-photoAlt: A stylised portrait of a person facing the viewer, flat gold and black shapes on warm cream, in a two-ink risograph print
+contact: Ask during the week 7 session, or email when a question cannot wait until the next one.
+related:
+  - lectures/week-07
 ---
 
-<!-- STARTER_CONTENT: replace this person entry, then remove this comment. -->
+Idris Fenn trained as a bench cutler before moving into teaching, and holds a
+Graduate Certificate in Applied Bladesmithing. His research interest is edge
+retention under repeated home use — how quickly a working edge degrades, and
+what maintenance schedule keeps sharpening a monthly task rather than a daily
+one. He treats the knife as the point at which preparation stops being
+theoretical: a blunt blade turns every later argument about timing into an
+argument about waiting.
 
-Replace this entry. A second person makes the listing, role ordering and
-teacher-reference fields visible before you replace the cast with your own.
+He owns week 7, the most detailed week in the course, and holds a short
+consultation slot after that session for students still working through
+grip and edge angle. Questions about later weeks are better directed to the
+convenor.
