@@ -47,15 +47,15 @@ export const slopCourseMetaSchema = z
 // provisioned, and no other course in the cohort has them.
 export const courseMeta = slopCourseMetaSchema.parse({
   code: "SLOP1640",
-  title: "Mise en Place",
+  title: "Introduction to Preparing Meal",
   session: "Semester 1",
   year: 2027,
   level: 1,
   startDate: "2027-02-22",
   endDate: "2027-05-28",
   description:
-    "A meal is decided before it is cooked. Nine weeks on selection, cold " +
-    "storage, butchery and the knife, then three weeks at the stove to " +
-    "measure what the preparation already settled. No prior experience.",
+    "A meal is decided before it is cooked. Ten weeks on choosing, storing, " +
+    "portioning and cutting what you will eat, then two at the stove to " +
+    "measure what the preparation already settled. No experience assumed.",
   tags: ["mise en place", "food safety", "knife skills"],
 }) satisfies CourseMetaInput;

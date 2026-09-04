@@ -1,8 +1,8 @@
 # SLOP1640 — the harness
 
-This repo builds one thing: the website for **SLOP1640 Mise en Place**, a
-first-year Slop University course about everything that happens in a kitchen
-before the heat comes on.
+This repo builds one thing: the website for **SLOP1640 Introduction to
+Preparing Meal**, a first-year Slop University course about everything that
+happens in a kitchen before the heat comes on.
 
 Read `README.md` for the platform. This file is the part that is mine: what the
 course is, what I will not let drift, and how I know a change is right.
@@ -15,11 +15,14 @@ reveals it.
 
 Twelve dated weeks:
 
-- **Weeks 1–9 are preparation only.** Choosing produce, refrigerator zones and
-  their temperatures, handling and portioning meat, knife cuts, measuring,
-  ordering the work, cleaning as you go.
-- **Weeks 10–12 cook**, and cook only to test the thesis: identical recipes,
-  different preparation, different results.
+- **Weeks 1–10 are preparation only.** Why preparation pays, vegetables,
+  animal protein, aromatics and oil, tools and surfaces, the knife, time under
+  service, fruit, and the cold chain that ties the storage weeks together.
+- **Weeks 11–12 cook**, and cook only to test the thesis: identically cooked
+  dishes from differently prepared material, then an assessed practical.
+
+The week-by-week plan, its sourcing obligations and the tests that protect it
+live in `.claude/epics/intro-preparing-meal/epic.md`.
 
 **Time is a constraint, not the subject.** A week may argue about batching,
 sequencing, or what to do the night before — but the course is not a
@@ -78,6 +81,17 @@ component is allowed; changing the shipped contract is not.
   the collection key, refs and URL stay `sessions`.
 - No `STARTER_CONTENT` comment survives a commit that replaces the fragment it
   marks.
+- **No real person teaches this course.** The week 8 guest lecturer is a
+  fictional character with an invented name. Never present a real chef as
+  teaching here, and never attribute an invented quote to a real person.
+- **Every factual claim carries a source that resolves.** Nutrition figures,
+  storage temperatures, timing research: cite work that exists, or teach the
+  concept without the number. A fabricated statistic on a course page is worse
+  than a missing one.
+- **A new markdown page under `src/pages/` names its layout in frontmatter**
+  (`layout: ../../layouts/PageLayout.astro`). The theme's automatic layout does
+  not fire on Windows, and a page without it builds with no `<html>` and fails
+  axe — see commit `f1c1ef8`.
 
 ### Process rules
 
