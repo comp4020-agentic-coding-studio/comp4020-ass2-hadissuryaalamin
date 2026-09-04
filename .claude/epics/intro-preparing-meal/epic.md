@@ -287,6 +287,143 @@ every edit and teach the next agent to weaken it.
 - `pnpm check` green and `pnpm check:evidence` green.
 - Every factual claim carries a source that resolves.
 
+## Round 2 — every week gets a lecture and a deck, tutorials replace prep prose
+
+Round 1 (above) shipped lecture pages for weeks 1, 3, 7, 8 and decks for weeks
+1 and 7. This round closes both gaps to all twelve weeks, replaces the
+sessions collection's content with hands-on exercises where the topic
+supports one, and adds nutrition/storage data feeding two reusable
+calculators. All round 1 constraints and the platform-lock rules continue to
+apply unchanged. A build agent should be able to work from this section plus
+`CLAUDE.md`, `spec/` and round 1 above, without the brainstorming
+conversation that produced it.
+
+### New constraints
+
+10. **Every teaching week carries both a lecture page and a slide deck** —
+    12 lectures, 12 decks, each lecture's `slides:` field resolving to its
+    matching deck.
+11. **The sessions collection (labelled Tutorials) keeps all twelve entries**,
+    but its content splits by topic fit: weeks 2, 3, 4, 5, 8, 9, 10 hold a
+    hands-on calculator exercise; weeks 1, 6, 7, 11, 12 state plainly that
+    there is no tutorial that week and why (week 1 has no prep decision yet
+    to practice; weeks 11–12 are past the prep stage). No week is dropped
+    from the collection — `spec/data-integrity.test.ts`'s twelve-week promise
+    still holds.
+12. **Two reusable calculator components, not twelve bespoke tools:**
+    - **Macro/calorie calculator** — ingredient + grams in, fat/protein/
+      calories out. Used on the tutorial pages of weeks 2, 3, 4, 9. Data
+      sourced from USDA FoodData Central, per ingredient, per 100 g, cited.
+    - **Storage-duration calculator** — prep date/time + ingredient or dish
+      type in, safe-until date/time out. Used on the tutorial pages of weeks
+      5, 8, 10. Data sourced from the same USDA FSIS cold-chain guidance
+      already cited in `10-food-safety-and-the-cold-chain.md` and
+      `11-first-heat.md`.
+    Both are content-driven by a per-week data file, not duplicated per week.
+13. **Slide deck images live under `src/decks/assets/<week-slug>/`**,
+    referenced with a relative path (`./assets/<week-slug>/file.jpg`) from
+    the matching `.deck.mdx`. Confirmed against astromotion's own resolution
+    rule: a relative image path is only rewritten correctly when it resolves
+    to somewhere under `src/` — `public/` or an absolute `/…` path 404s on
+    this site's subpath deploy. Applies to both `![bg](...)` backgrounds and
+    plain inline `![alt](...)` images.
+14. **Weeks 2, 3, 4, 9 name that week's most common ingredients** with fat,
+    protein and calorie figures in the lecture page, feeding directly into
+    that week's macro calculator. The other eight lectures stay on their own
+    topic and carry no nutrition content — this is not a blanket requirement
+    across all twelve weeks.
+
+### Week-by-week additions
+
+| Week | Lecture | Deck | Tutorial (sessions page) |
+|---|---|---|---|
+| 1 — Why prepare at all | existing, unchanged | rework existing deck to the new detail/image standard | no tutorial — week 1 argues the case, it has no prep decision yet |
+| 2 — Vegetables | new, + common vegetables' fat/protein/calories | new | macro calculator exercise |
+| 3 — Poultry and fish | existing, + common poultry/fish fat/protein/calories | new | macro calculator exercise |
+| 4 — Red meat | new, + common red meat cuts' fat/protein/calories | new | macro calculator exercise |
+| 5 — Aromatics and oil | new | new | storage-duration calculator exercise |
+| 6 — Kitchen tools and surfaces | new | new | no tutorial — topic has no ingredient or storage decision to exercise |
+| 7 — The knife | existing (already carries the round 1 deck; the most detailed) | rework for images/consistency, keep as the detail baseline | no tutorial — knife technique has no calculator to fit |
+| 8 — Guest lecture: time management | existing | new | storage-duration calculator exercise |
+| 9 — Fruit | new, + common fruit fat/protein/calories | new | macro calculator exercise |
+| 10 — Food safety and the cold chain | new | new | storage-duration calculator exercise |
+| 11 — Cooking | new | new | no tutorial — past the prep stage |
+| 12 — Live test | new | new | no tutorial — the live test is itself the exercise |
+
+Deck detail: each deck should peel its lecture's content into materially more
+slides than a one-slide-per-paragraph summary — use the existing
+`week-07.deck.mdx` (239 lines, round 1's most developed deck) as the detail
+baseline the other eleven should match, not `week-01.deck.mdx`'s original 99
+lines.
+
+### Spec tests to add
+
+Alongside the five from round 1, add to `spec/*.test.ts`, reading
+`dist/api/index.json`:
+
+6. **Twelve lecture entries exist**, numbered 1–12, no gaps or duplicates.
+7. **Twelve decks exist**, one per week, and every lecture's `slides:` field
+   resolves to a deck that exists.
+8. **Exactly seven sessions entries carry tutorial content** (weeks 2, 3, 4,
+   5, 8, 9, 10) **and exactly five carry the no-tutorial disposition** (weeks
+   1, 6, 7, 11, 12) — gate this on a checkable frontmatter field (e.g.
+   `tutorial: true`/`false`) rather than string-matching prose, since the
+   `sessions` schema is `.loose()` and accepts it without touching
+   `content.config.ts`.
+9. **Weeks 2, 3, 4 and 9 each cite a nutrition source** for their macro
+   figures.
+10. **Weeks 5, 8 and 10 each cite a storage-safety source** for their
+    duration figures.
+
+Test the contract (counts, links, presence of a citation), not exact prose.
+
+### Round 2 definition of done
+
+- Twelve lecture pages, weeks 1–12, no gaps; twelve decks, weeks 1–12, each
+  linked from its lecture's `slides:` field.
+- Seven tutorial exercise pages (weeks 2, 3, 4, 5, 8, 9, 10) and five
+  no-tutorial pages (weeks 1, 6, 7, 11, 12); twelve sessions entries total,
+  unchanged from round 1's count.
+- Macro/calorie calculator component built, used on weeks 2, 3, 4, 9;
+  ingredient data cites USDA FoodData Central.
+- Storage-duration calculator component built, used on weeks 5, 8, 10; data
+  cites the same USDA FSIS guidance already used in round 1.
+- All twelve decks materially more detailed than round 1's originals; images
+  live under `src/decks/assets/<week-slug>/`, no broken image paths (the
+  build's own broken-link check should catch these).
+- Spec tests 6–10 above written and passing; round 1's five spec tests still
+  passing.
+- `pnpm check` green. `pnpm check:evidence` at least as green as round 1 left
+  it — do not introduce a new failure beyond the already-deferred
+  `PROCESS.md` item.
+- Platform files still unchanged vs `main`: `astro.config.ts`,
+  `scripts/pages-base.ts`, `src/content.config.ts`'s four shipped schemas,
+  and the Slop branding spread in `src/site-config.ts`.
+
+### Round 2 task breakdown (for `epic-dispatch`)
+
+Use this table as the task template instead of deriving tasks from scratch —
+it is more specific than `CLAUDE.md`'s generic field breakdown for this
+round.
+
+| # | Task | Scope |
+|---|---|---|
+| 011 | Lecture content | 8 new lecture pages (2, 4, 5, 6, 9, 10, 11, 12); add nutrition content to existing week 3 and new weeks 2, 4, 9. `src/content/lectures/*` |
+| 012 | Tutorial content | Rewrite all 12 `src/content/sessions/*` entries: 7 exercise pages, 5 no-tutorial pages |
+| 013 | Macro/calorie calculator | Reusable component + per-week ingredient data files for weeks 2, 3, 4, 9 |
+| 014 | Storage-duration calculator | Reusable component + per-week storage data files for weeks 5, 8, 10 |
+| 015 | Decks batch A | Weeks 1–4: rework week 1, new 2/3/4 |
+| 016 | Decks batch B | Weeks 5–8: new 5/6, rework 7, new 8 |
+| 017 | Decks batch C | Weeks 9–12: new 9/10/11/12 |
+| 018 | Deck images | Source/generate candidates into `src/decks/assets/<week-slug>/`, wire into decks |
+| 019 | Spec tests | Add spec tests 6–10 above to `spec/*.test.ts` |
+| 020 | Final integration and check | `pnpm check` across all of the above, fix cross-task breakage, verify definition of done |
+
+Tasks 011 and 012 should land before 013/014 (calculators need the tutorial
+pages to render on) and before 015–017 (decks summarise lecture content).
+018 depends on 015–017 existing. 019 depends on 011, 012, 013, 014 existing.
+020 depends on everything.
+
 ## Notes for the executing session
 
 - **Windows build fix already applied.** The theme's `defaultLayout` remark
