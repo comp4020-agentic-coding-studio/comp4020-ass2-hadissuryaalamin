@@ -1,5 +1,5 @@
 ---
-title: Guest lecture: time management under service
+title: "Guest lecture: time management under service"
 description:
   A visiting chef on how preparation is organised in a professional kitchen
   once service is timed, and what that discipline reveals about week 1's

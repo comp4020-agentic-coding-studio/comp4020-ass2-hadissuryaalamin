@@ -13,9 +13,9 @@ related:
   - sessions/07-the-knife
   - sessions/10-food-safety-and-the-cold-chain
 links:
-  - label: USDA FSIS, "Safe Minimum Internal Temperature Chart"
+  - label: 'USDA FSIS, "Safe Minimum Internal Temperature Chart"'
     url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart
-  - label: USDA, "Cooking Meat: Is It Done Yet?"
+  - label: 'USDA, "Cooking Meat: Is It Done Yet?"'
     url: https://www.usda.gov/about-usda/news/blog/cooking-meat-it-done-yet
 spec:
   - you can state which single preparation variable your pair is testing,
