@@ -8,6 +8,7 @@ week: 7
 date: 2027-04-05
 teachers:
   - idris-fenn
+tutorial: false
 related:
   - lectures/week-07
 links:
@@ -76,6 +77,13 @@ restore, and runs on a slower cycle — roughly monthly under heavy,
 professional-style use, a few times a year under home-style use. This
 week's bench knives are checked and, if due, sharpened by the demonstrator;
 students are not issued a stone until that distinction is second nature.
+
+## Why there is no calculator this week
+
+This week's exercise is at the bench, not on screen: the reference figures
+for edge angle and hardness are given directly above rather than through a
+calculator, because what is being checked is a knife in a student's hand
+against those figures, not a value computed from a chosen ingredient.
 
 ## Afterwards
 

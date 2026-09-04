@@ -9,6 +9,7 @@ date: 2027-03-29
 tags:
   - tools
   - hygiene
+tutorial: false
 related:
   - sessions/05-aromatics-and-oil
 links:
@@ -88,6 +89,14 @@ measurably shed microplastic into food during use, and that this study did
 not find evidence of short-term cell toxicity at the levels it tested — both
 halves of that sentence are part of the finding, and dropping either one
 misrepresents it.
+
+## Why there is no tutorial
+
+This week has no calculator exercise: the decisions in front of a student
+are which board material to choose and how to maintain it, both of which
+are judged by comparison and inspection, not by a number a calculator could
+return. The tutorials resume next week, where a knife's own figures — edge
+angle, hardness, weight — are checked against a reference at the bench.
 
 ## Maintenance
 

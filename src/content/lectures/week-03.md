@@ -7,6 +7,7 @@ week: 3
 date: 2027-03-08
 teachers:
   - idris-fenn
+slides: /decks/week-03/
 related:
   - sessions/03-poultry-and-fish
 links:
@@ -20,6 +21,18 @@ links:
     url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f
   - label: USDA Food Safety and Inspection Service, "Cutting Boards"
     url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/cutting-boards
+  - label: >-
+      USDA FoodData Central, "Chicken, broilers or fryers, breast, meat
+      only, raw" (FDC ID 171077): 120 kcal, 2.62 g fat, 22.5 g protein per
+      100 g
+    url: https://fdc.nal.usda.gov/food-details/171077/nutrients
+  - label: >-
+      USDA FoodData Central, "Fish, salmon, Atlantic, farmed, raw"
+      (FDC ID 175167): 208 kcal, 13.42 g fat, 20.42 g protein per 100 g
+    url: https://fdc.nal.usda.gov/food-details/175167/nutrients
+spec:
+  - you can state the fat, protein and calorie content per 100 g of
+    chicken breast and salmon, with a source
 ---
 
 Chicken and fish are the primary material this week; duck is touched on
@@ -83,9 +96,28 @@ These are food-safety limits, not cooking instructions: the material in
 this course is stored, sorted and portioned, and the storage clock is what
 this week is teaching a student to read.
 
+## Chicken breast and salmon: fat, protein and calories per 100 g
+
+The invent-a-recipe assessment later in the semester asks for a
+nutritional composition traceable to a named food-composition database;
+this week's two primary materials are as good a place as any to start
+reading one. Figures are per 100 g raw, from [USDA FoodData
+Central](https://fdc.nal.usda.gov/).
+
+| Material | Calories (kcal) | Fat (g) | Protein (g) | Source |
+|---|---|---|---|---|
+| Chicken breast, meat only, raw | 120 | 2.62 | 22.5 | FDC ID 171077 |
+| Salmon, Atlantic, farmed, raw | 208 | 13.42 | 20.42 | FDC ID 175167 |
+
+Salmon's higher fat figure is consistent with the anatomy above: a
+cold-water swimmer stores more fat through its flesh than a bird whose
+breast, in particular, was bred to do comparatively little work.
+
 ## Outline
 
 - anatomy: muscle use, connective tissue and fat distribution in poultry,
   fish and, briefly, duck
 - handling: cold chain, cross-contamination and portioning, in that order
 - storage: sourced refrigerator and freezer limits for both materials
+- fat, protein and calorie content per 100 g for chicken breast and
+  salmon, sourced to USDA FoodData Central

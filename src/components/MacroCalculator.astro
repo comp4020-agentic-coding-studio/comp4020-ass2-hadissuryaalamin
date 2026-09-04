@@ -1,0 +1,235 @@
+---
+import type { MacroWeekData } from "../data/macro/types";
+
+interface Props {
+  /** This week's ingredient data and its USDA citation — see `src/data/macro/`. */
+  data: MacroWeekData;
+  /** Heading level for the calculator's own heading, so it nests correctly wherever it is embedded. */
+  headingLevel?: "h2" | "h3" | "h4";
+  /** Grams pre-selected when the calculator first renders (before any script runs). */
+  defaultGrams?: number;
+}
+
+const { data, headingLevel = "h2", defaultGrams = 100 } = Astro.props;
+const Heading = headingLevel;
+const uid = `macro-${data.week}`;
+const first = data.ingredients[0];
+---
+
+<section class="macro-calculator" data-week={data.week} aria-labelledby={`${uid}-heading`}>
+  <Heading id={`${uid}-heading`}>Macro calculator — {data.title}</Heading>
+  <p class="macro-calculator__intro">
+    Choose an ingredient and a quantity in grams. Fat, protein and calories are computed from USDA
+    FoodData Central figures given per 100&nbsp;g of the raw ingredient.
+  </p>
+  <form class="macro-calculator__form">
+    <div class="macro-calculator__field">
+      <label for={`${uid}-ingredient`}>Ingredient</label>
+      <select id={`${uid}-ingredient`} class="macro-calculator__ingredient">
+        {
+          data.ingredients.map((ingredient, index) => (
+            <option
+              value={index}
+              data-fat={ingredient.fatPer100g}
+              data-protein={ingredient.proteinPer100g}
+              data-kcal={ingredient.caloriesPer100g}
+              data-fdcid={ingredient.fdcId}
+            >
+              {ingredient.name}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <div class="macro-calculator__field">
+      <label for={`${uid}-grams`}>Quantity (g)</label>
+      <input
+        id={`${uid}-grams`}
+        class="macro-calculator__grams"
+        type="number"
+        inputmode="decimal"
+        min="0"
+        step="1"
+        value={defaultGrams}
+      />
+    </div>
+  </form>
+  <dl class="macro-calculator__output" aria-live="polite">
+    <div class="macro-calculator__stat">
+      <dt>Fat</dt>
+      <dd class="macro-calculator__fat">{((first.fatPer100g * defaultGrams) / 100).toFixed(1)} g</dd>
+    </div>
+    <div class="macro-calculator__stat">
+      <dt>Protein</dt>
+      <dd class="macro-calculator__protein">{((first.proteinPer100g * defaultGrams) / 100).toFixed(1)} g</dd>
+    </div>
+    <div class="macro-calculator__stat">
+      <dt>Calories</dt>
+      <dd class="macro-calculator__kcal">{Math.round((first.caloriesPer100g * defaultGrams) / 100)} kcal</dd>
+    </div>
+  </dl>
+  <p class="macro-calculator__citation">
+    Per 100&nbsp;g figures:{" "}
+    <a
+      class="macro-calculator__source-link"
+      href={`https://fdc.nal.usda.gov/food-details/${first.fdcId}/nutrients`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {first.name} — {data.source.label}, FDC ID {first.fdcId}
+    </a>.
+  </p>
+</section>
+
+<script>
+  function initMacroCalculator(root: HTMLElement) {
+    const select = root.querySelector<HTMLSelectElement>(".macro-calculator__ingredient");
+    const gramsInput = root.querySelector<HTMLInputElement>(".macro-calculator__grams");
+    const fatOut = root.querySelector<HTMLElement>(".macro-calculator__fat");
+    const proteinOut = root.querySelector<HTMLElement>(".macro-calculator__protein");
+    const kcalOut = root.querySelector<HTMLElement>(".macro-calculator__kcal");
+    const sourceLink = root.querySelector<HTMLAnchorElement>(".macro-calculator__source-link");
+
+    if (!select || !gramsInput || !fatOut || !proteinOut || !kcalOut) return;
+
+    const update = () => {
+      const option = select.options[select.selectedIndex];
+      if (!option) return;
+
+      const grams = Number(gramsInput.value);
+      const factor = Number.isFinite(grams) && grams > 0 ? grams / 100 : 0;
+      const fat = Number(option.dataset.fat) * factor;
+      const protein = Number(option.dataset.protein) * factor;
+      const kcal = Number(option.dataset.kcal) * factor;
+
+      fatOut.textContent = `${fat.toFixed(1)} g`;
+      proteinOut.textContent = `${protein.toFixed(1)} g`;
+      kcalOut.textContent = `${Math.round(kcal)} kcal`;
+
+      if (sourceLink) {
+        const fdcId = option.dataset.fdcid;
+        const name = option.textContent?.trim() ?? "";
+        sourceLink.textContent = `${name} — USDA FoodData Central, FDC ID ${fdcId}`;
+        sourceLink.href = `https://fdc.nal.usda.gov/food-details/${fdcId}/nutrients`;
+      }
+    };
+
+    select.addEventListener("change", update);
+    gramsInput.addEventListener("input", update);
+    update();
+  }
+
+  document.querySelectorAll<HTMLElement>(".macro-calculator").forEach(initMacroCalculator);
+</script>
+
+<style>
+  .macro-calculator {
+    margin-block: var(--at-spacing-xl);
+    padding: var(--at-spacing-lg);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg-elevated);
+  }
+
+  .macro-calculator__intro {
+    color: var(--at-text-secondary);
+    margin-block: 0 var(--at-spacing-lg);
+  }
+
+  .macro-calculator__form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--at-spacing-md);
+    align-items: end;
+    margin-block-end: var(--at-spacing-lg);
+  }
+
+  .macro-calculator__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--at-spacing-xs);
+    min-width: 0;
+  }
+
+  .macro-calculator__field label {
+    font-size: var(--at-font-size-sm);
+    font-weight: 600;
+    color: var(--at-text);
+  }
+
+  .macro-calculator__ingredient,
+  .macro-calculator__grams {
+    font: inherit;
+    font-size: var(--at-font-size-base);
+    color: var(--at-text);
+    background: var(--at-bg);
+    border: 1px solid var(--at-border);
+    border-radius: var(--at-border-radius);
+    padding: var(--at-spacing-sm) var(--at-spacing-md);
+  }
+
+  .macro-calculator__grams {
+    width: 8ch;
+  }
+
+  .macro-calculator__ingredient:focus-visible,
+  .macro-calculator__grams:focus-visible {
+    outline: 2px solid var(--at-accent);
+    outline-offset: 2px;
+  }
+
+  .macro-calculator__output {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--at-spacing-md);
+    margin: 0 0 var(--at-spacing-md);
+  }
+
+  .macro-calculator__stat {
+    padding: var(--at-spacing-sm) var(--at-spacing-md);
+    background: var(--at-bg);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    text-align: center;
+  }
+
+  .macro-calculator__stat dt {
+    font-size: var(--at-font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--at-text-muted);
+    margin-block-end: var(--at-spacing-xs);
+  }
+
+  .macro-calculator__stat dd {
+    margin: 0;
+    font-size: var(--at-font-size-h4);
+    font-weight: 600;
+    color: var(--at-text);
+  }
+
+  .macro-calculator__citation {
+    font-size: var(--at-font-size-sm);
+    color: var(--at-text-muted);
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  .macro-calculator__source-link {
+    color: var(--at-link);
+  }
+
+  .macro-calculator__source-link:hover {
+    color: var(--at-link-hover);
+  }
+
+  @media (width < 480px) {
+    .macro-calculator__form {
+      grid-template-columns: 1fr;
+    }
+
+    .macro-calculator__grams {
+      width: 100%;
+    }
+  }
+</style>

@@ -9,6 +9,7 @@ date: 2027-05-10
 teachers:
   - marisol-quaye
   - idris-fenn
+tutorial: false
 related:
   - assessments/the-public-kitchen
   - sessions/11-first-heat
@@ -58,6 +59,13 @@ ingredient. This is the same discipline week 8's timed exercise practised
 against a guest framework and week 11 practised as a controlled comparison;
 this session is the last rehearsal before both are done for a mark, live,
 with an audience instead of a study group.
+
+## Why there is no calculator this week
+
+The live test carries no tutorial calculator: it is the rehearsal for an
+assessed practical, not a new decision with a number attached, and the
+course's exercises end at week 10 once every preparation decision they
+cover has already been practised once.
 
 ## Afterwards
 

@@ -1,0 +1,39 @@
+---
+title: "Animal protein I: poultry and fish"
+description: >-
+  A hands-on exercise computing fat, protein and calorie content across four
+  items this week's lecture covers by anatomy, to see what that anatomy
+  means in grams.
+week: 3
+date: 2027-03-08
+tags:
+  - nutrition
+tutorial: true
+related:
+  - sessions/02-vegetables
+  - lectures/week-03
+links:
+  - label: USDA, Agricultural Research Service, FoodData Central
+    url: https://fdc.nal.usda.gov/
+spec:
+  - you can compute the fat, protein and calorie content of a stated
+    quantity of at least one poultry or fish item using this week's
+    calculator
+  - you can rank this week's four items by fat content and connect the
+    order to the anatomy the lecture described
+  - you can name the FoodData Central source a chosen item's figures come
+    from
+---
+
+import MacroCalculator from "../../components/MacroCalculator.astro";
+import week03 from "../../data/macro/week-03";
+
+Which cut of poultry or fish goes into a dish is as much a nutritional decision as an anatomical one — this week's lecture explains why chicken breast, salmon, cod and duck behave differently at the knife; this exercise puts a number on what that anatomy means for composition.
+
+## Exercise
+
+Select each of this week's four items in turn — chicken breast, salmon, cod, duck — at the same quantity, and record the fat, protein and calorie figures for each.
+
+<MacroCalculator data={week03} headingLevel="h3" />
+
+Rank the four by fat content. The order should match the anatomy the lecture describes: a cold-water swimmer (salmon) stores fat through its flesh rather than under the skin the way a bird does, and a lean white fish that does little sustained swimming (cod) carries almost none. A ranking that surprises you is worth checking against the lecture's account of muscle use and fat distribution before assuming the figure is wrong.

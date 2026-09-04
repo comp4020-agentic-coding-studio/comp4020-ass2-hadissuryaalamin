@@ -9,6 +9,7 @@ date: 2027-05-03
 teachers:
   - marisol-quaye
   - idris-fenn
+tutorial: false
 related:
   - sessions/07-the-knife
   - sessions/10-food-safety-and-the-cold-chain
@@ -66,6 +67,13 @@ be traced to the stated preparation difference rather than to anything that
 happened after the pan was hot. A group that finds no difference has also
 learned something, provided they can say which preparation variable they
 tested and why it turned out not to matter this time.
+
+## Why there is no calculator this week
+
+There is no tutorial calculator this week: the thermometer readings a
+group takes are checked directly against the minimum internal
+temperatures stated above, not computed from a chosen ingredient the way
+the earlier storage and nutrition exercises were.
 
 ## Afterwards
 

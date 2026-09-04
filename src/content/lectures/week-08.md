@@ -8,6 +8,7 @@ week: 8
 date: 2027-04-12
 teachers:
   - dominic-achterberg
+slides: /decks/week-08/
 related:
   - lectures/week-01
 ---
