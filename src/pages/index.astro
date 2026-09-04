@@ -2,42 +2,51 @@
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
-import heroImage from "../assets/images/hero-home.avif";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
 
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
+// Deliberately image-free: no hero artwork. `ContentLayout` renders a plain
+// heading when no `heroImage` is passed (see `astro-theme-university`'s
+// `ContentLayout.astro`), so the course is introduced by its title and the
+// thesis in `courseMeta.description` rather than by an illustration standing
+// in for it.
 ---
 
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
   description={courseMeta.description}
-  heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
   {...siteConfig}
 >
   <ul class="course-tags" aria-label="Course tags">
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    Across ten weeks you select, store and cut without applying heat: choosing
+    produce and protein at the market, holding each within the temperature and
+    time a cold chain allows, and cutting only once the material's own
+    structure explains why. Weeks 11 and 12 cook — first to compare identical
+    dishes made from differently prepared material, then once, under time, in
+    front of an audience. You leave with your own written account of a dish:
+    the preparation decisions that produced it, and whether they held once
+    heat was applied.
   </p>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    A first-year unit that assumes no prior kitchen experience, and tests none
+    before week 12. It suits anyone willing to treat feeding oneself as a
+    subject with its own literature and its own failure modes, rather than a
+    skill picked up by watching someone else do it.
   </p>
 
   <h2>Where to go next</h2>
   <CardGrid columns={2}>
     <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
+      <p>
+        The weekly schedule and what happens in each {sessionLabels.singular.toLowerCase()}.
+      </p>
     </Card>
     <Card title="Assessment" href="/assessments/">
       <p>What is marked, what it is worth, and when it is due.</p>
