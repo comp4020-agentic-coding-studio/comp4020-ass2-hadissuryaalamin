@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -18,6 +18,7 @@ interface ApiNode {
     week?: number;
     weight?: number;
     slides?: string;
+    tutorial?: boolean;
     marking?: { mode: string; criteria?: MarkingCriterion[] };
     [key: string]: unknown;
   };
@@ -28,7 +29,29 @@ interface CourseApi {
   nodes: ApiNode[];
 }
 
+interface ExternalLink {
+  label: string;
+  url: string;
+}
+
+// The aggregate dist/api/index.json deliberately omits `links` (see
+// astro-course-university's IndexEntry vs ContentNode) — it only appears on
+// each node's own dist/api/<id>.json. Tests 9-10 below read that per-node
+// file to check for a citation.
+interface FullApiNode extends ApiNode {
+  links?: ExternalLink[];
+}
+
 const api = JSON.parse(readFileSync(resolve("dist/api/index.json"), "utf8")) as CourseApi;
+
+function loadNode(id: string): FullApiNode {
+  return JSON.parse(readFileSync(resolve("dist/api", `${id}.json`), "utf8")) as FullApiNode;
+}
+
+function hasCitationMatching(node: ApiNode, pattern: RegExp): boolean {
+  const full = loadNode(node.id);
+  return (full.links ?? []).some((link) => pattern.test(link.label) || pattern.test(link.url));
+}
 
 // Nodes that participate in the course graph (see `graphCollections` in
 // src/site-config.ts) — policies is deliberately excluded there, so it's
@@ -96,5 +119,88 @@ describe("course promises", () => {
       (node) => node.type === "lectures" && typeof node.meta?.slides === "string" && node.meta.slides.length > 0,
     );
     expect(lecturesWithSlides.length).toBeGreaterThan(0);
+  });
+});
+
+describe("course promises — round 2", () => {
+  it("gives every one of the twelve weeks a lecture, numbered 1-12 with no gaps or duplicates", () => {
+    const weeks = api.nodes
+      .filter((node) => node.type === "lectures")
+      .map((node) => node.meta?.week)
+      .sort((a, b) => (a ?? 0) - (b ?? 0));
+
+    expect(weeks).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+  });
+
+  it("gives every lecture a slide deck that actually exists in the built output", () => {
+    const lectures = api.nodes.filter((node) => node.type === "lectures");
+    expect(lectures.length).toBe(12);
+
+    for (const lecture of lectures) {
+      const slides = lecture.meta?.slides;
+      expect(typeof slides, `${lecture.id} has no slides field`).toBe("string");
+
+      // meta.slides is a site path like "/decks/week-02/"; the deck itself
+      // is a static route, so its build output is dist/decks/week-02/index.html.
+      const deckDir = String(slides).replace(/^\/+|\/+$/g, "");
+      const deckIndex = resolve("dist", deckDir, "index.html");
+      expect(existsSync(deckIndex), `${lecture.id}'s deck (${slides}) has no built page at ${deckIndex}`).toBe(
+        true,
+      );
+    }
+  });
+
+  it("marks exactly seven sessions entries tutorial:true (weeks 2,3,4,5,8,9,10) and five tutorial:false (weeks 1,6,7,11,12)", () => {
+    const sessions = api.nodes.filter((node) => node.type === "sessions");
+    expect(sessions.length).toBe(12);
+
+    const tutorialWeeks = sessions
+      .filter((node) => node.meta?.tutorial === true)
+      .map((node) => node.meta?.week)
+      .sort((a, b) => (a ?? 0) - (b ?? 0));
+    const noTutorialWeeks = sessions
+      .filter((node) => node.meta?.tutorial === false)
+      .map((node) => node.meta?.week)
+      .sort((a, b) => (a ?? 0) - (b ?? 0));
+
+    expect(tutorialWeeks, "tutorial:true weeks").toEqual([2, 3, 4, 5, 8, 9, 10]);
+    expect(noTutorialWeeks, "tutorial:false weeks").toEqual([1, 6, 7, 11, 12]);
+  });
+
+  it("cites a USDA FoodData Central source for each week that carries macro figures (weeks 2, 3, 4, 9)", () => {
+    const FOOD_DATA_CENTRAL_PATTERN = /FoodData Central/i;
+    const nutritionWeeks = [2, 3, 4, 9];
+
+    for (const week of nutritionWeeks) {
+      const lecture = api.nodes.find((node) => node.type === "lectures" && node.meta?.week === week);
+      expect(lecture, `no lecture found for week ${week}`).toBeDefined();
+      expect(
+        hasCitationMatching(lecture as ApiNode, FOOD_DATA_CENTRAL_PATTERN),
+        `week ${week} lecture (${lecture?.id}) has no FoodData Central citation in its links`,
+      ).toBe(true);
+    }
+  });
+
+  it("cites a USDA/FSIS storage-safety source for each week whose tutorial exercises safe duration (weeks 5, 8, 10)", () => {
+    // The citation lives wherever the built content actually carries it —
+    // for weeks 5, 8 and 10 that's the tutorial (sessions) page, not the
+    // lecture, so check both and require at least one to cite the source.
+    const STORAGE_SAFETY_PATTERN = /USDA|FSIS|FoodSafety\.gov/i;
+    const storageWeeks = [5, 8, 10];
+
+    for (const week of storageWeeks) {
+      const candidates = api.nodes.filter(
+        (node) => (node.type === "lectures" || node.type === "sessions") && node.meta?.week === week,
+      );
+      expect(candidates.length, `no lecture or session found for week ${week}`).toBeGreaterThan(0);
+
+      const cited = candidates.some((node) => hasCitationMatching(node, STORAGE_SAFETY_PATTERN));
+      expect(
+        cited,
+        `week ${week} has no USDA/FSIS storage-safety citation in its lecture or session links (checked ${candidates
+          .map((c) => c.id)
+          .join(", ")})`,
+      ).toBe(true);
+    }
   });
 });
