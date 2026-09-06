@@ -76,8 +76,42 @@ that epic needed.
 - `pnpm check` green; deck visually confirmed at
   `/decks/week-01/` in the dev server.
 
+## Second round — imagery and the render bug
+
+Review of the built deck turned up three further problems, all fixed here.
+
+6. **Deck background images never loaded — every deck, not just week 1.**
+   astromotion writes `background-image: url('./assets/<deck>/<file>')` into
+   the slide, resolved against the page at `/decks/<slug>/`, but copies deck
+   assets to `dist/src/decks/assets/<deck>/`. Those two paths never meet, so
+   every `![bg ...]` directive in the project resolved to a 404 and painted
+   nothing — including all twelve title slides. The empty right-hand column
+   this left behind is the "side panel" reported on the headline-figure
+   slide. Week 1's four image paths are now written relative to the built
+   page (`../../src/decks/assets/week-01/...`), which resolves in both `astro
+   dev` and `dist`. **Decks 2–12 are still affected**; the upstream fix is
+   probably an astromotion bump (the pinned v0.23.0 is well behind v0.25.1),
+   which is a platform decision and deliberately not taken here.
+
+7. **The chart was unreadable and clipped.** Its labels were `#333` on the
+   deck's near-black background, and the third bar extended past the
+   `viewBox`, so the citation below it overlapped the bar. Re-cut to a wider,
+   shorter `viewBox` with `currentColor` text and the theme's amber ramp.
+
+8. **`meal-prep.jpg` was almost certainly AI-generated.** Its EXIF reports
+   camera model `NIKON Z6_3` — not a model Nikon makes — and a capture time
+   of `2024:01:01 00:00:16`, a placeholder. Removed and replaced. Every
+   image now in the deck was checked for plausible camera EXIF before use;
+   see `src/decks/assets/week-01/SOURCES.md`.
+
+Three photographs now carry the argument, all Commons, all credited:
+prepped ingredients (CC0) beside "The cost is real", a heated ready meal
+(CC BY-SA 4.0) on the new "What gets eaten instead" slide, and vegetables
+in a pan (CC0) beside "Two weeks of proof".
+
 ## Status
 
-Done. All five changes implemented in `src/decks/week-01.deck.mdx`,
-`pnpm check` green (build, axe, broken-links, spec tests), deck visually
-confirmed at `/decks/week-01/` in the dev server.
+Done. `pnpm check` green (build, axe, internal links, broken links, deck
+structure, 11 spec tests). Slides confirmed by screenshotting the running
+dev server with headless Chrome — the jsdom-based checks cannot see layout,
+so overlap and 404'd backgrounds do not fail the build.
