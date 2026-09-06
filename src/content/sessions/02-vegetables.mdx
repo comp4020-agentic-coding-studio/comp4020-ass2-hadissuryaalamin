@@ -1,0 +1,39 @@
+---
+title: Vegetables
+description: >-
+  A hands-on exercise reading a vegetable's fat, protein and calorie content
+  off the same USDA database this week's lecture cites, in grams rather than
+  impressions.
+week: 2
+date: 2027-03-01
+tags:
+  - nutrition
+tutorial: true
+related:
+  - lectures/week-02
+  - sessions/03-poultry-and-fish
+links:
+  - label: USDA, Agricultural Research Service, FoodData Central
+    url: https://fdc.nal.usda.gov/
+spec:
+  - you can compute the fat, protein and calorie content of a stated
+    quantity of at least one vegetable using this week's calculator
+  - you can name the USDA FoodData Central entry a chosen vegetable's
+    figures come from
+  - you can compare two vegetables' calorie density and say, in one
+    sentence, what the difference tracks (starch and water content, not fat
+    or protein)
+---
+
+import MacroCalculator from "../../components/MacroCalculator.astro";
+import week02 from "../../data/macro/week-02";
+
+A vegetable's contribution to a dish is a preparation decision measured in grams, not guessed from how substantial it looks on a plate — this week's lecture covers where a vegetable is stored and why; this exercise covers what it is actually made of.
+
+## Exercise
+
+Pick a vegetable below and a quantity plausible for a dish — a handful of spinach, a diced potato, a sliced carrot — and read off its fat, protein and calorie content. Repeat with a second vegetable at the same quantity and compare the two: vegetables that look similarly substantial on a plate can differ by a factor of three or more in calorie density, for reasons unrelated to anything this week's lecture covers about storage.
+
+<MacroCalculator data={week02} headingLevel="h3" />
+
+Note which USDA FoodData Central entry the figure came from — the calculator links to it directly — before switching to a different vegetable. This is the same reckoning the invent-a-recipe assignment (week 6) asks for, applied here to material this course has already handled.

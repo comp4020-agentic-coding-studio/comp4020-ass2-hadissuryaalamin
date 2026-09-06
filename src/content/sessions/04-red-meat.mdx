@@ -1,0 +1,37 @@
+---
+title: "Animal protein II: red meat"
+description: >-
+  A hands-on exercise comparing two ground-beef blends against lamb and
+  goat, to see what a stated fat percentage actually means in grams.
+week: 4
+date: 2027-03-15
+tags:
+  - nutrition
+tutorial: true
+related:
+  - sessions/03-poultry-and-fish
+  - lectures/week-04
+links:
+  - label: USDA, Agricultural Research Service, FoodData Central
+    url: https://fdc.nal.usda.gov/
+spec:
+  - you can compute the fat, protein and calorie content of a stated
+    quantity of at least one red-meat item using this week's calculator
+  - you can compare 85%-lean and 93%-lean ground beef at the same quantity
+    and state the difference in fat content
+  - you can name which of this week's four items is leanest and connect
+    that to the anatomy the lecture described
+---
+
+import MacroCalculator from "../../components/MacroCalculator.astro";
+import week04 from "../../data/macro/week-04";
+
+Choosing a fat percentage for ground beef is a preparation decision with a measurable nutritional consequence, made at the point of purchase rather than at the pan — the same reckoning this week's lecture applies to whole cuts, applied here to the blends a recipe actually names by number.
+
+## Exercise
+
+Select the two ground-beef entries below in turn — 85% lean and 93% lean — at the same quantity, and compare their fat and calorie figures. Then check lamb leg and goat the same way: goat's low fat content is easy to underestimate against the other three from appearance alone.
+
+<MacroCalculator data={week04} headingLevel="h3" />
+
+Rank all four by fat content. Goat's smaller muscle groups and lower external fat, discussed in the lecture, should place it last; if it does not, check the quantity entered before assuming the figure is wrong.

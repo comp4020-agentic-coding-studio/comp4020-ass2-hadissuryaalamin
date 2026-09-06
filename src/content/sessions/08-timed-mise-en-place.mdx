@@ -1,0 +1,41 @@
+---
+title: Timed mise en place
+description: >-
+  A hands-on exercise computing how long a held item — a portioned
+  vegetable, a stock, a sauce — can safely wait before it must be served or
+  refrigerated again.
+week: 8
+date: 2027-04-12
+teachers:
+  - marisol-quaye
+tutorial: true
+related:
+  - lectures/week-08
+  - lectures/week-01
+links:
+  - label: USDA FSIS, "'Danger Zone' (40°F - 140°F)"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f
+  - label: USDA FSIS, "Leftovers and Food Safety"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
+spec:
+  - you can compute a safe-until time for a held item using this week's
+    calculator, given a preparation time
+  - you can state why a held item's safe window differs by a factor of
+    dozens depending on whether it is kept at room temperature or
+    refrigerated
+  - you can connect the "held" category from the guest lecture to a
+    specific, sourced cold-chain figure
+---
+
+import StorageCalculator from "../../components/StorageCalculator.astro";
+import week08Storage from "../../data/storage/week-08";
+
+Deciding how long a held item can safely wait before service is a preparation decision the guest lecture named but did not put a number on — this exercise supplies the number, using the same cold-chain rule that has applied to every perishable material this course has handled since week 3.
+
+## Exercise
+
+This week's lecture sorts preparation work into three categories: finished ahead of time, held in a stable state until called, and made to order. The middle category is the one with a real clock attached. Choose a held item below — a portioned or blanched vegetable, a stock, a sauce — enter the time it was brought to that state, and read off the time by which it must be served or refrigerated again.
+
+<StorageCalculator data={week08Storage} />
+
+Compare a held item kept at room temperature against the same item once refrigerated: the gap between a two-hour window and a four-day one is the entire reason "held" is a state a kitchen manages actively, rather than a place preparation work waits passively.

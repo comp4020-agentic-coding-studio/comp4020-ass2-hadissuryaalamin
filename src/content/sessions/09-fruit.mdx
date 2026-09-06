@@ -1,0 +1,40 @@
+---
+title: Fruit
+description: >-
+  A hands-on exercise comparing calorie density across this week's fruits,
+  and checking whether ripening behaviour tracks nutritional composition or
+  is unrelated to it.
+week: 9
+date: 2027-04-19
+teachers:
+  - marisol-quaye
+tags:
+  - nutrition
+tutorial: true
+related:
+  - sessions/10-food-safety-and-the-cold-chain
+  - lectures/week-09
+links:
+  - label: USDA, Agricultural Research Service, FoodData Central
+    url: https://fdc.nal.usda.gov/
+spec:
+  - you can compute the fat, protein and calorie content of a stated
+    quantity of at least one fruit using this week's calculator
+  - you can state, from the calculator's own figures, that calorie content
+    across this week's fruits tracks sugar content more than fat or protein
+  - you can name the FoodData Central source a chosen fruit's figures come
+    from
+---
+
+import MacroCalculator from "../../components/MacroCalculator.astro";
+import week09 from "../../data/macro/week-09";
+
+Choosing which fruit to build a dish around is, among other things, a calorie-density decision — this week's lecture covers where each fruit is stored and why; this exercise covers what each one actually contributes once it is in the dish.
+
+## Exercise
+
+Select two fruits below at the same quantity — a banana and a serving of strawberries, say — and compare calorie content. Then check whether the climacteric fruits here (apple, banana, mango) differ systematically on any of the three figures from the two non-climacteric fruits (orange, strawberry), or whether ripening behaviour and nutritional composition are simply unrelated questions.
+
+<MacroCalculator data={week09} headingLevel="h3" />
+
+None of the five fruits is a meaningful source of fat or protein; the spread in calories across them tracks sugar content, not the climacteric split this week's lecture uses to decide where each one is stored.

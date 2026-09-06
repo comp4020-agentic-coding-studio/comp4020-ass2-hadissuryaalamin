@@ -1,0 +1,41 @@
+---
+title: Food safety and the cold chain
+description: >-
+  A hands-on exercise computing a safe-until time for the raw materials and
+  the already-prepared leftovers this course has handled since week 2, using
+  the same cold-chain rule throughout.
+week: 10
+date: 2027-04-26
+teachers:
+  - marisol-quaye
+tags:
+  - food-safety
+tutorial: true
+related:
+  - lectures/week-10
+  - sessions/09-fruit
+links:
+  - label: USDA FSIS, "'Danger Zone' (40°F - 140°F)"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f
+  - label: USDA FSIS, "Refrigeration and Food Safety"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration
+spec:
+  - you can compute a safe-until time for at least one raw material and one
+    already-prepared leftover using this week's calculator
+  - you can state which of this week's items carries the shortest safe
+    window and why (danger-zone exposure, not anatomy)
+  - you can name the source the calculator's durations are drawn from
+---
+
+import StorageCalculator from "../../components/StorageCalculator.astro";
+import week10Storage from "../../data/storage/week-10";
+
+Every material this course has stored since week 2 answers to the same clock; this exercise is where that clock is actually run, rather than only stated as a range of days.
+
+## Exercise
+
+Choose a raw material below — poultry, ground meat, a whole cut, or an already-prepared leftover — enter the time it was refrigerated, and read off the time by which it must be reheated to a safe temperature, refrozen or discarded. Repeat for a material held at room temperature to see how sharply the danger-zone rule shortens the same clock.
+
+<StorageCalculator data={week10Storage} />
+
+Compare the safe-until time for raw poultry against a whole cut of red meat prepared at the same moment: the gap between the two is the anatomical argument from weeks 3 and 4, expressed here as a difference in hours rather than in muscle structure.

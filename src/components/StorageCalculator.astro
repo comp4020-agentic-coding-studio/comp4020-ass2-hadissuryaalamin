@@ -1,0 +1,190 @@
+---
+import type { StorageDataset } from "../data/storage/types";
+
+interface Props {
+  /** The week's dataset — see `src/data/storage/types.ts`. */
+  data: StorageDataset;
+  /** Override the DOM id prefix if more than one calculator lands on a page. */
+  id?: string;
+}
+
+const { data, id = `storage-calculator-${data.week}` } = Astro.props as Props;
+const itemFieldId = `${id}-item`;
+const prepFieldId = `${id}-prep`;
+---
+
+<div class="storage-calculator" id={id}>
+  <form class="storage-calculator__form">
+    <div class="storage-calculator__field">
+      <label for={itemFieldId}>Ingredient or dish type</label>
+      <select id={itemFieldId} class="storage-calculator__item" required>
+        <option value="" selected disabled>Choose one&hellip;</option>
+        {
+          data.items.map((item) => (
+            <option
+              value={item.id}
+              data-duration-hours={item.durationHours}
+              data-condition={item.condition}
+              data-note={item.note ?? ""}
+            >
+              {item.label}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <div class="storage-calculator__field">
+      <label for={prepFieldId}>Prepared at</label>
+      <input type="datetime-local" id={prepFieldId} class="storage-calculator__prep" required />
+    </div>
+    <button type="submit" class="storage-calculator__submit">Calculate safe-until time</button>
+  </form>
+  <p class="storage-calculator__result" role="status" aria-live="polite"></p>
+  <ul class="storage-calculator__sources">
+    {
+      data.sources.map((source) => (
+        <li>
+          <a href={source.url}>{source.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .storage-calculator {
+    border: 1px solid var(--slop-border, #ccc);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    margin-block: 1.5rem;
+  }
+
+  .storage-calculator__form {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 40rem) {
+    .storage-calculator__form {
+      grid-template-columns: 2fr 1fr auto;
+      align-items: end;
+    }
+  }
+
+  .storage-calculator__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .storage-calculator__field label {
+    font-weight: 600;
+  }
+
+  .storage-calculator__item,
+  .storage-calculator__prep,
+  .storage-calculator__submit {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--slop-border, #888);
+  }
+
+  .storage-calculator__submit {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .storage-calculator__item:focus-visible,
+  .storage-calculator__prep:focus-visible,
+  .storage-calculator__submit:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .storage-calculator__result {
+    margin-top: 1rem;
+    font-weight: 600;
+    min-height: 1.5em;
+  }
+
+  .storage-calculator__result:empty {
+    display: none;
+  }
+
+  .storage-calculator__sources {
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+  }
+</style>
+
+<script>
+  /**
+   * Vanilla client-side behaviour for every `.storage-calculator` instance
+   * on the page. No framework dependency — `astro.config.ts` registers no
+   * React/Vue/Svelte integration, so a plain Astro component with an
+   * inline script is the reusable unit (round 2, epic constraint 12).
+   */
+  function formatDuration(hours: number): string {
+    if (hours < 24) {
+      return `${hours} hour${hours === 1 ? "" : "s"}`;
+    }
+    const days = hours / 24;
+    const rounded = Number.isInteger(days) ? days : Math.round(days * 10) / 10;
+    return `${rounded} day${rounded === 1 ? "" : "s"}`;
+  }
+
+  function initStorageCalculator(root: HTMLElement): void {
+    const form = root.querySelector<HTMLFormElement>(".storage-calculator__form");
+    const select = root.querySelector<HTMLSelectElement>(".storage-calculator__item");
+    const prepInput = root.querySelector<HTMLInputElement>(".storage-calculator__prep");
+    const result = root.querySelector<HTMLElement>(".storage-calculator__result");
+    if (!form || !select || !prepInput || !result) return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const option = select.selectedOptions[0];
+      if (!option || !option.value) {
+        result.textContent = "Choose an ingredient or dish type first.";
+        return;
+      }
+      if (!prepInput.value) {
+        result.textContent = "Enter the date and time preparation finished.";
+        return;
+      }
+
+      const durationHours = Number(option.dataset.durationHours);
+      const condition = option.dataset.condition ?? "";
+      const note = option.dataset.note ?? "";
+      const prepDate = new Date(prepInput.value);
+
+      if (Number.isNaN(prepDate.getTime()) || Number.isNaN(durationHours)) {
+        result.textContent = "Could not calculate a safe-until time from that input.";
+        return;
+      }
+
+      const safeUntil = new Date(prepDate.getTime() + durationHours * 60 * 60 * 1000);
+      const formatted = safeUntil.toLocaleString(undefined, {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      const label = option.textContent?.trim() ?? "This item";
+      const durationText = formatDuration(durationHours);
+      result.textContent =
+        `${label} (${condition}): safe until ${formatted} — ${durationText} after preparation.` +
+        (note ? ` ${note}` : "");
+    });
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".storage-calculator")
+    .forEach((root) => initStorageCalculator(root));
+</script>

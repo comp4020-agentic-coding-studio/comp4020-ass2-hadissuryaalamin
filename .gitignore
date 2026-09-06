@@ -26,3 +26,12 @@ mise.local.toml
 # your course API key, and this repo goes public when you ship. Your tracked
 # harness is CLAUDE.md (and any AGENTS.md), not this directory.
 .claude/
+
+# ...except the epic plans, which are process evidence rather than machine
+# state. Nothing in here holds credentials: they are the week-by-week build
+# contract this site was written from, and PROCESS.md cites them. Git will not
+# descend into an excluded directory, so the path has to be reopened a level at
+# a time before the negation below can match.
+!.claude/
+.claude/*
+!.claude/epics/

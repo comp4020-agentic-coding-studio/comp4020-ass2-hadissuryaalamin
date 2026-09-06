@@ -1,0 +1,39 @@
+---
+title: "Spices, aromatics and oil"
+description: >-
+  A hands-on exercise computing how long a cut allium or a prepared leaf
+  herb can wait before it must be refrigerated or discarded.
+week: 5
+date: 2027-03-22
+tags:
+  - food-science
+tutorial: true
+related:
+  - sessions/04-red-meat
+  - lectures/week-05
+links:
+  - label: USDA Food Safety and Inspection Service, "'Danger Zone' (40°F - 140°F)"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f
+  - label: USDA Food Safety and Inspection Service, "Leftovers and Food Safety"
+    url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
+spec:
+  - you can compute a safe-until time for a cut allium or a prepared leaf
+    herb using this week's calculator, given a preparation time
+  - you can state how much longer a refrigerated item's safe window is than
+    the same item held at room temperature
+  - you can say why this week's refrigerated allium and herb items apply a
+    general storage window rather than an allium-specific one
+---
+
+import StorageCalculator from "../../components/StorageCalculator.astro";
+import week05Storage from "../../data/storage/week-05";
+
+Deciding how long a chopped or crushed allium can wait before it must go into the pan or the refrigerator is a preparation decision distinct from what the cutting itself does to its flavour, which is the lecture's subject.
+
+## Exercise
+
+Enter a preparation time for a chopped or crushed garlic, onion or shallot held at room temperature and read off its safe-until time. Repeat for the same item refrigerated, then for a prepared leaf herb, to see how differently the three clocks run for material handled in the same week.
+
+<StorageCalculator data={week05Storage} />
+
+Read the note attached to each refrigerated result: USDA publishes no allium- or herb-specific refrigerated figure, so the calculator applies its general window for cut, perishable food at the shorter, more conservative end. Teaching the concept without a fabricated number is the same rule this course applies everywhere a figure cannot be sourced.
