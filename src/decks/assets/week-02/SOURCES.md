@@ -13,3 +13,5 @@ author.
 - `cut-brunoise.jpg` — File:Karotten brunoise.jpg — <https://commons.wikimedia.org/w/index.php?curid=17203899> — CC0 — Martin.Tontsch (133KB, resized to 960px wide to match this deck's inline-image convention)
 - `cut-small-dice.jpg` — File:Diced carrot.jpg — <https://commons.wikimedia.org/w/index.php?curid=30810061> — CC BY-SA 3.0 — ProjectManhattan (104KB, resized to 960px wide to match this deck's inline-image convention)
 - `cut-chiffonade.jpg` — File:BasilChiffonade.jpg — <https://commons.wikimedia.org/w/index.php?curid=75875413> — CC BY-SA 4.0 — Cesdeva (174KB, resized to 960px wide to match this deck's inline-image convention)
+- `onion-storage.jpg` — File:Onion Storage.jpg — <https://commons.wikimedia.org/w/index.php?curid=128428508> — CC BY-SA 4.0 — S.Elaiyaraja (249KB, resized to 960px wide to match this deck's inline-image convention)
+- `crisper-drawer.jpg` — File:Food Safety - Cut Waste in Refrigerators (20200608-FSIS-LSC-0138).jpg — <https://commons.wikimedia.org/w/index.php?curid=184965410> — Public domain (USDA/FSIS, photo by Lance Cheung) (176KB, resized to 960px wide to match this deck's inline-image convention)
