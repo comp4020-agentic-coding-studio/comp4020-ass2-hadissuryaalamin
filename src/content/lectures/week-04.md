@@ -3,8 +3,8 @@ title: "Animal protein II: red meat"
 description: >-
   Beef as the primary material, goat and lamb touched on briefly — the same
   anatomy-then-handling-then-portioning structure as poultry and fish, plus
-  the fat, protein and calorie content of a mince and a ground lamb that
-  plausibly recur in this course.
+  the fat, protein, calorie and iron content of the two ground-beef blends,
+  the lamb leg and the goat that this week's calculator actually uses.
 week: 4
 date: 2027-03-15
 teachers:
@@ -24,13 +24,23 @@ links:
   - label: FSIS — "Danger Zone" (40 °F - 140 °F / 4 °C - 60 °C)
     url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f
   - label: >-
-      USDA FoodData Central, "Beef, ground, 80% lean meat / 20% fat, raw"
-      (FDC ID 2514744): 243 kcal, 19.4 g fat, 17.5 g protein per 100 g
-    url: https://fdc.nal.usda.gov/food-details/2514744/nutrients
+      USDA FoodData Central, "Beef, ground, 85% lean meat / 15% fat, raw"
+      (FDC ID 171796): 215 kcal, 15.0 g fat, 18.59 g protein, 2.09 mg iron
+      per 100 g
+    url: https://fdc.nal.usda.gov/food-details/171796/nutrients
   - label: >-
-      USDA FoodData Central, "Lamb, ground, raw" (FDC ID 174370): 242 kcal,
-      18.6 g fat, 17.5 g protein per 100 g
-    url: https://fdc.nal.usda.gov/food-details/174370/nutrients
+      USDA FoodData Central, "Beef, ground, 93% lean meat / 7% fat, raw"
+      (FDC ID 173110): 152 kcal, 7.0 g fat, 20.85 g protein, 2.33 mg iron
+      per 100 g
+    url: https://fdc.nal.usda.gov/food-details/173110/nutrients
+  - label: >-
+      USDA FoodData Central, "Lamb, domestic, leg, whole, raw" (FDC ID
+      174311): 230 kcal, 17.2 g fat, 17.91 g protein, 1.66 mg iron per 100 g
+    url: https://fdc.nal.usda.gov/food-details/174311/nutrients
+  - label: >-
+      USDA FoodData Central, "Goat, raw" (FDC ID 175303): 109 kcal, 2.3 g
+      fat, 20.6 g protein, 2.83 mg iron per 100 g
+    url: https://fdc.nal.usda.gov/food-details/175303/nutrients
 spec:
   - you can name one muscle that suits slow, moist treatment and one that
     suits fast, dry treatment, and say why in terms of connective tissue
@@ -38,8 +48,9 @@ spec:
     days, with a source, and say how it differs from poultry and fish
   - you can explain why "which cuts suit which treatment" is an anatomical
     question rather than a matter of taste
-  - you can state the fat, protein and calorie content per 100 g of ground
-    beef and ground lamb, with a source
+  - you can state the fat, protein, calorie and iron content per 100 g of
+    at least one of this week's four calculator items — two ground-beef
+    blends, lamb leg and goat — with a source
 ---
 
 Last week's structure repeats here on purpose: anatomy first, then
@@ -92,23 +103,31 @@ than the longer whole-cut window. The [Danger
 Zone](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f)
 (4 °C to 60 °C) applies identically to red meat as to poultry and fish.
 
-## Ground beef and ground lamb: fat, protein and calories per 100 g
+## Two beef blends, lamb and goat: fat, protein, calories and iron per 100 g
 
-Both figures below are for ground (minced) raw meat, because that is the
-form this course's invent-a-recipe assessment most often reaches for, and
-minced meat carries the shortest safe holding window discussed above — a
-reason to compute a dish's nutritional composition against the exact cut
-named, not against "beef" in general. Figures are per 100 g raw, from
+The two beef entries below are ground (minced) raw meat, because that is
+the form this course's invent-a-recipe assessment most often reaches for,
+and minced meat carries the shortest safe holding window discussed above
+— a reason to compute a dish's nutritional composition against the exact
+cut named, not against "beef" in general. Lamb and goat are given as
+whole raw cuts, the lower-fat comparison point the calculator sets
+against the two beef blends. Figures are per 100 g raw, from
 [USDA FoodData Central](https://fdc.nal.usda.gov/).
 
-| Cut | Calories (kcal) | Fat (g) | Protein (g) | Source |
-|---|---|---|---|---|
-| Beef, ground, 80% lean / 20% fat, raw | 243 | 19.4 | 17.5 | FDC ID 2514744 |
-| Lamb, ground, raw | 242 | 18.6 | 17.5 | FDC ID 174370 |
+| Cut | Calories (kcal) | Fat (g) | Protein (g) | Iron (mg) | Source |
+|---|---|---|---|---|---|
+| Beef, ground, 85% lean / 15% fat, raw | 215 | 15.0 | 18.59 | 2.09 | FDC ID 171796 |
+| Beef, ground, 93% lean / 7% fat, raw | 152 | 7.0 | 20.85 | 2.33 | FDC ID 173110 |
+| Lamb, domestic, leg, whole, raw | 230 | 17.2 | 17.91 | 1.66 | FDC ID 174311 |
+| Goat, raw | 109 | 2.3 | 20.6 | 2.83 | FDC ID 175303 |
 
-The two are close enough on all three measures that the distinguishing
-factor in a recipe is rarely nutritional — it is the anatomy already
-discussed above, and the flavour that follows from it.
+Fat is where the four separate most clearly, from 2.3 g in goat to 17.2 g
+in the whole lamb leg — a wider spread than the two beef blends show
+against each other. Iron does not track fat the same way: goat, the
+leanest of the four, also carries the most iron per 100 g, and lamb leg,
+the fattiest, carries the least. Which of these a recipe should reach for
+is still the anatomy question discussed above, not one a nutrition table
+settles.
 
 ## Outline
 
@@ -116,5 +135,6 @@ discussed above, and the flavour that follows from it.
 - anatomy: why some cuts are tough and some are not
 - handling and portioning, unchanged from last week's rules
 - storage windows, and why ground meat is the short exception
-- fat, protein and calorie content per 100 g for ground beef and ground
-  lamb, sourced to USDA FoodData Central
+- fat, protein, calorie and iron content per 100 g for this week's four
+  calculator items — two ground-beef blends, lamb leg and goat — sourced
+  to USDA FoodData Central
