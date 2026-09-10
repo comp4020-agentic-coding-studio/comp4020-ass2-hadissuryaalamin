@@ -29,15 +29,15 @@ const week03: MacroWeekData = {
     },
     {
       name: "Fish, cod, Atlantic, raw",
-      fdcId: 172904,
+      fdcId: 171955,
       caloriesPer100g: 82,
-      proteinPer100g: 18.4,
+      proteinPer100g: 17.81,
       fatPer100g: 0.67,
     },
     {
       name: "Duck, domesticated, meat only, raw",
       fdcId: 172410,
-      caloriesPer100g: 132,
+      caloriesPer100g: 135,
       proteinPer100g: 18.28,
       fatPer100g: 5.95,
     },
