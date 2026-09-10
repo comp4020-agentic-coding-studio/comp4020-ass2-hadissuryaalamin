@@ -10,3 +10,4 @@ author.
 - `salmon-fillet.jpg` — File:Raw salmon fillets.jpg — <https://commons.wikimedia.org/w/index.php?curid=77589496> — CC0 — FULVIO_TOGNON (215KB)
 - `chicken-leg-quarters.jpg` — File:Raw leg chicken quarters.jpg — <https://commons.wikimedia.org/wiki/File:Raw_leg_chicken_quarters.jpg> — CC BY-SA 4.0 — Baoothersks (resized from 4128×3096 to 960×720, 107KB)
 - `salmon-myotomes.jpg` — File:Myomeres.jpg — <https://commons.wikimedia.org/wiki/File:Myomeres.jpg> — CC BY-SA 4.0 — Nwbeeson (resized from 1800×2493 to 960×1330, 259KB)
+- `fridge-thermometer.jpg` — File:Food Safety - Cut Waste in Refrigerators (20120106-OC-AMW-0073).jpg — <https://commons.wikimedia.org/wiki/File:Food_Safety_-_Cut_Waste_in_Refrigerators_(20120106-OC-AMW-0073).jpg> — Public domain (U.S. Government work, USDA) — USDA (resized from 5436×4080 to 960×721, 89KB)
