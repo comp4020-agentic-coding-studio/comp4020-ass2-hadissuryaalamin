@@ -6,7 +6,6 @@ service. One line per file: filename, Commons file, source URL, license,
 author.
 
 - `onions.jpg` — File:A pile of tomatoes, onions, avocados, garlic, ginger, lemons.jpg — <https://commons.wikimedia.org/w/index.php?curid=164467271> — CC0 — Queen Asali (147KB)
-- `carrots.jpg` — File:Diced Carrots and Green Beans.jpg — <https://commons.wikimedia.org/w/index.php?curid=195693278> — CC0 — Paul The Writer (216KB)
 - `vegetable-market.jpg` — File:Outdoor market fruit and vegetable stall Market Place Romford London 01.jpg — <https://commons.wikimedia.org/w/index.php?curid=186790814> — CC BY-SA 4.0 — Acabashi (324KB)
 - `cut-julienne.jpg` — File:Carrots Julienne.jpg — <https://commons.wikimedia.org/w/index.php?curid=1729160> — CC BY 2.0 — frank wouters (79KB, resized to 960px wide to match this deck's inline-image convention)
 - `cut-batonnet.jpg` — File:Crudites Platter.JPG — <https://commons.wikimedia.org/w/index.php?curid=23106477> — CC BY-SA 3.0 — Phoenixcatering (127KB, resized to 960px wide to match this deck's inline-image convention)
@@ -15,3 +14,5 @@ author.
 - `cut-chiffonade.jpg` — File:BasilChiffonade.jpg — <https://commons.wikimedia.org/w/index.php?curid=75875413> — CC BY-SA 4.0 — Cesdeva (174KB, resized to 960px wide to match this deck's inline-image convention)
 - `onion-storage.jpg` — File:Onion Storage.jpg — <https://commons.wikimedia.org/w/index.php?curid=128428508> — CC BY-SA 4.0 — S.Elaiyaraja (249KB, resized to 960px wide to match this deck's inline-image convention)
 - `crisper-drawer.jpg` — File:Food Safety - Cut Waste in Refrigerators (20200608-FSIS-LSC-0138).jpg — <https://commons.wikimedia.org/w/index.php?curid=184965410> — Public domain (USDA/FSIS, photo by Lance Cheung) (176KB, resized to 960px wide to match this deck's inline-image convention)
+- `onion-fresh-cross-section.jpg` — File:White onion cross section.jpg — <https://commons.wikimedia.org/w/index.php?curid=36046743> — CC BY-SA 3.0 — Amada44 (100KB, resized to 960px wide to match this deck's inline-image convention)
+- `onion-declining-cross-section.jpg` — File:Rotten onion.jpg — <https://commons.wikimedia.org/w/index.php?curid=76141748> — CC BY-SA 4.0 — Tiia Monto (244KB, resized to 960px wide to match this deck's inline-image convention)
