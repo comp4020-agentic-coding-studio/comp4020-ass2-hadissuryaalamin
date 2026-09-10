@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 depends_on: [004]
 parallel: false
 conflicts_with: [001, 002, 003, 004, 006]
