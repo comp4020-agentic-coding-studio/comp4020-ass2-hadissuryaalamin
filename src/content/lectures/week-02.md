@@ -38,13 +38,29 @@ links:
       0.24 g fat, 0.93 g protein per 100 g
     url: https://fdc.nal.usda.gov/food-details/170393/nutrients
   - label: >-
-      USDA FoodData Central, "Potatoes, raw, skin" (FDC ID 170032):
-      58 kcal, 0.10 g fat, 2.57 g protein per 100 g
-    url: https://fdc.nal.usda.gov/food-details/170032/nutrients
+      USDA FoodData Central, "Potatoes, flesh and skin, raw" (FDC ID
+      170026): 77 kcal, 0.10 g fat, 2.05 g protein, 2.10 g fibre per 100 g
+    url: https://fdc.nal.usda.gov/food-details/170026/nutrients
   - label: >-
       USDA FoodData Central, "Spinach, raw" (FDC ID 168462): 23 kcal,
-      0.39 g fat, 2.86 g protein per 100 g
+      0.39 g fat, 2.86 g protein, 2.20 g fibre per 100 g
     url: https://fdc.nal.usda.gov/food-details/168462/nutrients
+  - label: >-
+      USDA FoodData Central, "Garlic, raw" (FDC ID 169230): 149 kcal,
+      0.50 g fat, 6.36 g protein, 2.10 g fibre per 100 g
+    url: https://fdc.nal.usda.gov/food-details/169230/nutrients
+  - label: >-
+      USDA FoodData Central, "Lettuce, cos or romaine, raw" (FDC ID
+      169247): 17 kcal, 0.30 g fat, 1.23 g protein, 2.10 g fibre per 100 g
+    url: https://fdc.nal.usda.gov/food-details/169247/nutrients
+  - label: >-
+      USDA FoodData Central, "Broccoli, raw" (FDC ID 170379): 34 kcal,
+      0.37 g fat, 2.82 g protein, 2.60 g fibre per 100 g
+    url: https://fdc.nal.usda.gov/food-details/170379/nutrients
+  - label: >-
+      USDA FoodData Central, "Cauliflower, raw" (FDC ID 169986): 25 kcal,
+      0.28 g fat, 1.92 g protein, 2.00 g fibre per 100 g
+    url: https://fdc.nal.usda.gov/food-details/169986/nutrients
 spec:
   - you can sort a list of ten vegetables into refrigerate and
     do-not-refrigerate
@@ -113,29 +129,36 @@ anything goes in a bag: produce that is already soft, discoloured at cut
 edges, or smelling faintly fermented has already started a decline that
 storage can only slow, not reverse.
 
-## Common vegetables: fat, protein and calories per 100 g
+## Common vegetables: calories, fat, protein and fibre per 100 g
 
 Nutritional composition is not a storage question, but this course's
 invent-a-recipe assessment asks a student to reason about a dish's
 composition before it is cooked, and vegetables are frequently the largest
 component by weight in a prepared recipe. Figures below are per 100 g of
-the raw vegetable, drawn from [USDA FoodData
+the raw, edible portion, drawn from [USDA FoodData
 Central](https://fdc.nal.usda.gov/), the same database the assessment
-brief names.
+brief names, and grouped by the family groupings this week already uses.
 
-| Vegetable | Calories (kcal) | Fat (g) | Protein (g) | Source |
-|---|---|---|---|---|
-| Onion, raw | 40 | 0.10 | 1.1 | FDC ID 170000 |
-| Carrot, raw | 41 | 0.24 | 0.93 | FDC ID 170393 |
-| Potato, raw, skin | 58 | 0.10 | 2.57 | FDC ID 170032 |
-| Spinach, raw | 23 | 0.39 | 2.86 | FDC ID 168462 |
+| Vegetable | Calories (kcal) | Fat (g) | Protein (g) | Fibre (g) | Source |
+|---|---|---|---|---|---|
+| Potato, flesh and skin, raw | 77 | 0.10 | 2.05 | 2.10 | FDC ID 170026 |
+| Carrot, raw | 41 | 0.24 | 0.93 | 2.80 | FDC ID 170393 |
+| Onion, raw | 40 | 0.10 | 1.10 | 1.70 | FDC ID 170000 |
+| Garlic, raw | 149 | 0.50 | 6.36 | 2.10 | FDC ID 169230 |
+| Spinach, raw | 23 | 0.39 | 2.86 | 2.20 | FDC ID 168462 |
+| Lettuce, cos/romaine, raw | 17 | 0.30 | 1.23 | 2.10 | FDC ID 169247 |
+| Broccoli, raw | 34 | 0.37 | 2.82 | 2.60 | FDC ID 170379 |
+| Cauliflower, raw | 25 | 0.28 | 1.92 | 2.00 | FDC ID 169986 |
 
-None of the four is a meaningful source of fat; the calorie content across
-this group tracks starch and water content rather than protein or fat, which
-is worth stating plainly rather than leaving a student to assume vegetables
-are interchangeable on this measure. The tutorial session's macro calculator
-uses exactly these four figures, scaled to whatever quantity a recipe calls
-for.
+None of the eight is a meaningful source of fat; the calorie content across
+this group tracks carbohydrate and water content rather than protein or fat
+— garlic's comparatively low water content is why it is the outlier at
+149 kcal, worth stating plainly rather than leaving a student to assume
+vegetables are interchangeable on this measure. The tutorial session's macro
+calculator draws on five of these — onion, carrot, potato, spinach and
+broccoli — using the same per-100 g figures shown here, scaled to whatever
+quantity a recipe calls for; garlic, lettuce and cauliflower are not yet
+selectable in the calculator.
 
 ## Outline
 
@@ -143,5 +166,6 @@ for.
 - storage: shelf, drawer, humidity, and the fixed 4 °C reference point
 - ethylene producers and the sensitive, and why they are kept apart
 - choosing well at market
-- fat, protein and calorie content per 100 g for onion, carrot, potato and
-  spinach, sourced to USDA FoodData Central
+- calorie, fat, protein and fibre content per 100 g for eight vegetables
+  spanning roots and tubers, alliums, leafy greens and brassicas, sourced
+  to USDA FoodData Central

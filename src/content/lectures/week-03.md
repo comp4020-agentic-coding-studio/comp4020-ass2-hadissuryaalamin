@@ -23,13 +23,23 @@ links:
     url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/cutting-boards
   - label: >-
       USDA FoodData Central, "Chicken, broilers or fryers, breast, meat
-      only, raw" (FDC ID 171077): 120 kcal, 2.62 g fat, 22.5 g protein per
-      100 g
+      only, raw" (FDC ID 171077): 120 kcal, 2.62 g fat, 22.5 g protein,
+      0.37 mg iron per 100 g
     url: https://fdc.nal.usda.gov/food-details/171077/nutrients
   - label: >-
       USDA FoodData Central, "Fish, salmon, Atlantic, farmed, raw"
-      (FDC ID 175167): 208 kcal, 13.42 g fat, 20.42 g protein per 100 g
+      (FDC ID 175167): 208 kcal, 13.42 g fat, 20.42 g protein, 0.34 mg
+      iron per 100 g
     url: https://fdc.nal.usda.gov/food-details/175167/nutrients
+  - label: >-
+      USDA FoodData Central, "Fish, cod, Atlantic, raw" (FDC ID 171955):
+      82 kcal, 0.67 g fat, 17.81 g protein, 0.38 mg iron per 100 g
+    url: https://fdc.nal.usda.gov/food-details/171955/nutrients
+  - label: >-
+      USDA FoodData Central, "Duck, domesticated, meat only, raw" (FDC
+      ID 172410): 135 kcal, 5.95 g fat, 18.28 g protein, 2.4 mg iron per
+      100 g
+    url: https://fdc.nal.usda.gov/food-details/172410/nutrients
 spec:
   - you can state the fat, protein and calorie content per 100 g of
     chicken breast and salmon, with a source
@@ -96,22 +106,28 @@ These are food-safety limits, not cooking instructions: the material in
 this course is stored, sorted and portioned, and the storage clock is what
 this week is teaching a student to read.
 
-## Chicken breast and salmon: fat, protein and calories per 100 g
+## Fat, protein, calories and iron per 100 g
 
 The invent-a-recipe assessment later in the semester asks for a
 nutritional composition traceable to a named food-composition database;
-this week's two primary materials are as good a place as any to start
-reading one. Figures are per 100 g raw, from [USDA FoodData
+this week's four materials — the same four the tutorial's macro
+calculator offers — are as good a place as any to start reading one.
+Figures are per 100 g raw, from [USDA FoodData
 Central](https://fdc.nal.usda.gov/).
 
-| Material | Calories (kcal) | Fat (g) | Protein (g) | Source |
-|---|---|---|---|---|
-| Chicken breast, meat only, raw | 120 | 2.62 | 22.5 | FDC ID 171077 |
-| Salmon, Atlantic, farmed, raw | 208 | 13.42 | 20.42 | FDC ID 175167 |
+| Material | Calories (kcal) | Fat (g) | Protein (g) | Iron (mg) | Source |
+|---|---|---|---|---|---|
+| Chicken breast, meat only, raw | 120 | 2.62 | 22.5 | 0.37 | FDC ID 171077 |
+| Salmon, Atlantic, farmed, raw | 208 | 13.42 | 20.42 | 0.34 | FDC ID 175167 |
+| Cod, Atlantic, raw | 82 | 0.67 | 17.81 | 0.38 | FDC ID 171955 |
+| Duck, meat only, raw | 135 | 5.95 | 18.28 | 2.40 | FDC ID 172410 |
 
 Salmon's higher fat figure is consistent with the anatomy above: a
 cold-water swimmer stores more fat through its flesh than a bird whose
-breast, in particular, was bred to do comparatively little work.
+breast, in particular, was bred to do comparatively little work. The
+iron column follows the same dark-meat/white-meat split already drawn
+for poultry: duck, dark meat across the whole carcass, carries more than
+six times chicken breast's iron.
 
 ## Outline
 
@@ -119,5 +135,5 @@ breast, in particular, was bred to do comparatively little work.
   fish and, briefly, duck
 - handling: cold chain, cross-contamination and portioning, in that order
 - storage: sourced refrigerator and freezer limits for both materials
-- fat, protein and calorie content per 100 g for chicken breast and
-  salmon, sourced to USDA FoodData Central
+- fat, protein, calorie and iron content per 100 g for chicken breast,
+  salmon, cod and duck, sourced to USDA FoodData Central

@@ -5,7 +5,7 @@ description: SLOP1640 week 4 — anatomy, handling and storage for beef, goat an
 
 {/* _class: impact */}
 
-![bg blur:2px brightness:0.5](./assets/week-04/raw-steak.jpg)
+![bg blur:2px brightness:0.5](../../src/decks/assets/week-04/raw-steak.jpg)
 
 # Animal protein II
 
@@ -45,7 +45,11 @@ animal.
 - loin, along the animal's back — did comparatively little work, far
   less connective tissue, finer grain
 
-![Beef cuts by muscle group, mapped to the anatomy this slide describes](./assets/week-04/beef-cuts-diagram.png)
+<div style="display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin-top: 10px;">
+<img src="../../src/decks/assets/week-04/beef-cuts-diagram.png" alt="Beef cuts by muscle group, mapped to the anatomy this slide describes" style="max-height: 190px; width: auto;" />
+<img src="../../src/decks/assets/week-04/beef-shank.jpg" alt="A raw beef shank cross-section, a worked cut with coarse muscle grain and a visible band of connective tissue" style="max-height: 190px; width: auto;" />
+<img src="../../src/decks/assets/week-04/beef-tenderloin.jpg" alt="Raw beef tenderloin cut into portions, a resting cut with fine, even muscle grain and almost no connective tissue" style="max-height: 190px; width: auto;" />
+</div>
 
 ---
 
@@ -90,12 +94,21 @@ animal.
 - treat any surface or tool that has touched raw meat as contaminated
   until washed
 
+<img src="../../src/decks/assets/week-04/fridge-thermometer.jpg" alt="A hand holds an appliance thermometer inside a refrigerator, checking its reading against the food stored on the shelves rather than trusting the dial on the door" style="max-height: 220px; width: auto; margin: 10px auto; display: block;" />
+
 ---
 
 ## Portioning
 
 Along, rather than across, the direction of connective tissue and
 fibre — this is what makes a portion cook predictably.
+
+The same logic scales with portion size. A primal cut carries the
+least surface per gram; breaking it down for sale or for the kitchen
+adds cut surface, and cut surface is where surface bacteria take hold
+first. Carried to its extreme — grinding — that is why ground red meat
+keeps for **2 days** against the **3–5 days** a whole cut keeps (see
+*Whole cuts versus ground*, ahead).
 
 ---
 
@@ -116,6 +129,11 @@ fibre — this is what makes a portion cook predictably.
 Grinding mixes surface bacteria through the whole volume, so ground red
 meat follows the shorter window rather than the longer whole-cut one.
 
+<div style="display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin-top: 10px;">
+<img src="../../src/decks/assets/week-04/beef-rib-roast.jpg" alt="A whole raw beef standing rib roast, tied with butcher's twine, with only one cut face exposed and the rest of its surface intact" style="max-height: 190px; width: auto;" />
+<img src="../../src/decks/assets/week-04/ground-beef.jpg" alt="Ground beef heaped on a plate, its surface broken into many small fragments rather than one intact face" style="max-height: 190px; width: auto;" />
+</div>
+
 ---
 
 ## The danger zone, unchanged
@@ -127,32 +145,88 @@ poultry and fish.
 
 {/* _class: banner */}
 
-# Nutrition: ground beef and ground lamb
+# Choosing well
 
 ---
 
-## Fat, protein and calories per 100 g
+## Bright red, then brown: oxidation, not spoilage
 
-Ground (minced), raw, from USDA FoodData Central — the form this
-course's invent-a-recipe assessment most often reaches for, and the form
-with the shortest safe holding window.
+A freshly cut surface is bright cherry red; refrigerated, it turns
+brown. Same pigment, myoglobin, in different chemical states — not
+different levels of safety.
 
-| Cut | Calories (kcal) | Fat (g) | Protein (g) | FDC ID |
-|---|---|---|---|---|
-| Beef, ground, 80% lean / 20% fat, raw | 243 | 19.4 | 17.5 | 2514744 |
-| Lamb, ground, raw | 242 | 18.6 | 17.5 | 174370 |
+- **oxymyoglobin** — myoglobin freshly bound to oxygen, bright red,
+  the colour of a cut just made or a package just opened
+- **metmyoglobin** — the same pigment further oxidised by air and
+  store lighting, brown
+- USDA FSIS: this colour shift alone does not mean the meat has
+  spoiled — an intact cut's interior is often greyish from lack of
+  oxygen, which is normal
 
-![bg right:32% contain](./assets/week-04/ground-beef.jpg)
+<img src="../../src/decks/assets/week-04/beef-steak-fresh.jpg" alt="A raw beef steak on a cutting board, its cut surface a bright cherry-red where it has been freshly exposed to air" style="max-height: 90px; width: auto; margin: 6px auto 0; display: block;" />
+
+---
+
+## What actually indicates spoilage
+
+Colour records what a surface has been doing chemically since it was
+cut. It does not, by itself, say whether the meat is still sound. FSIS
+names three checks that do:
+
+- **slime or tackiness** on the surface — a texture change, not a
+  colour change
+- **an off odour** — sour or otherwise unlike the neutral smell of
+  fresh meat
+- **the date** on the label, read against how long the meat has
+  actually been held
+
+None of the three is colour. A brown cut with none of them is
+oxidised; a bright red cut with any one of them is not fresh, whatever
+its colour says.
+
+---
+
+{/* _class: banner */}
+
+# Nutrition: two beef blends, lamb and goat
+
+---
+
+## Two ground-beef blends, per 100 g
+
+Raw, from USDA FoodData Central — the same two blends, and the same
+figures, that this week's tutorial calculator uses.
+
+| Cut | Calories (kcal) | Fat (g) | Protein (g) | Iron (mg) | FDC ID |
+|---|---|---|---|---|---|
+| Beef, ground, 85% lean / 15% fat, raw | 215 | 15.0 | 18.59 | 2.09 | 171796 |
+| Beef, ground, 93% lean / 7% fat, raw | 152 | 7.0 | 20.85 | 2.33 | 173110 |
+
+---
+
+## Lamb leg and goat, per 100 g
+
+Same source and convention as the previous slide. Both are whole raw
+cuts, not ground, and both sit in the calculator as the lower-fat
+comparison point against the two beef blends.
+
+| Cut | Calories (kcal) | Fat (g) | Protein (g) | Iron (mg) | FDC ID |
+|---|---|---|---|---|---|
+| Lamb, domestic, leg, whole, raw | 230 | 17.2 | 17.91 | 1.66 | 174311 |
+| Goat, raw | 109 | 2.3 | 20.6 | 2.83 | 175303 |
 
 ---
 
 ## What the numbers say
 
-The two are close enough on all three measures that the distinguishing
-factor in a recipe is rarely nutritional.
-
-- the anatomy already covered is what actually distinguishes them
-- flavour follows from that anatomy, not from the macro figures
+- fat is where the four separate most clearly — from 2.3 g in goat to
+  17.2 g in the whole lamb leg, a wider spread than the two beef blends
+  show against each other
+- iron does not track fat the same way: goat, the leanest of the four,
+  also carries the most iron per 100 g; lamb leg, the fattiest, carries
+  the least
+- which cut a recipe should reach for is still the anatomy question
+  covered above, not a question the nutrition table settles
 
 ---
 
@@ -173,8 +247,12 @@ factor in a recipe is rarely nutritional.
   Basics](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/steps-keep-food-safe)
 - [USDA FSIS — "Danger Zone" (40 °F–140 °F / 4 °C–60
   °C)](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/danger-zone-40f-140f)
+- [USDA FSIS — The Color of Meat and
+  Poultry](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/color-meat-and-poultry)
+- [USDA FSIS — Beef From Farm to
+  Table](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/meat-catfish/beef-farm-table)
 - [USDA FoodData Central](https://fdc.nal.usda.gov/)
 
-Session 4's tutorial exercises the macro calculator on ground beef and
-ground lamb. Next: week 5 moves from anatomy to what processing does to
-aromatics.
+Session 4's tutorial exercises the macro calculator on two ground-beef
+blends, lamb leg and goat. Next: week 5 moves from anatomy to what
+processing does to aromatics.
