@@ -54,6 +54,11 @@ image fit:
 Week 7's blade-anatomy diagram is the clearest case: it is the centrepiece of
 the most detailed week in the course, and it renders 124px tall.
 
+**The `garlic.jpg` row is already discharged.** Task 001 used that slide as its
+prototype and left the conversion in place, so week 5's 75px image now renders
+at 544×363. Lane B (task 003) inherits it and must not re-convert it. The other
+seven rows remain open.
+
 **Week 2 escapes this only by accident** — its image-bearing slides carry two
 to four lines of text, so a 260px image fits underneath. Week 1 escapes it
 differently, by keeping `![bg right:34% contain]` split panels for images that
@@ -86,16 +91,32 @@ Verified unused: `columns`, `split-content` and `image-credit` appear nowhere
 under `src/decks/` — every repository hit is a site component (`CardGrid
 columns={2}`) or calculator CSS.
 
-`.columns` is a real two-column grid with `flex-grow: 1`, so it takes the
-slide's full remaining height. Text in one cell, image in the other, gives the
-image roughly **600px wide and ~480px tall** — six times week 5's garlic — and
-it keeps the `<img>` tag, so it keeps real alt text. That is the whole fix.
+`.columns` is a real two-column grid, and the extra **width** is the whole
+win. Text in one cell, image in the other took week 5's garlic from 75px to
+**544×363** rendered canvas px — 7.2× taller — while keeping the `<img>` tag
+and its real alt text.
 
 **Raw `<div class="…">` passes through MDX to the slide.** Proven in this
 repo: `src/decks/week-02.deck.mdx:238` already wraps two `<figure>` elements in
-`<div class="compare">` and renders correctly. `.columns` should behave the
-same way, but it is still prototyped and screenshotted before rollout (task
-001).
+`<div class="compare">` and renders correctly.
+
+> **Corrected by task 001 — two claims in an earlier draft of this epic were
+> false. Take every number from `updates/001.md`, not from prose here.**
+>
+> 1. **`flex-grow: 1` is inert.** astromotion configures Reveal with
+>    `display: "grid"` (`astromotion/pages/[...slug].astro:74`), so reveal.js
+>    stamps `display: grid` inline on every `section`. A section is a *grid*
+>    container with `align-content: start` (deck.css:119), never a flex
+>    container, so the declaration never applies. `.columns` is as tall as its
+>    taller cell and no taller — it does **not** take the slide's full
+>    remaining height. The benefit is horizontal only.
+> 2. **A cell is 544px, not 1120px, so the deck's 1.75rem body step
+>    overflows.** Wrapped text height scales with roughly the *square* of
+>    font-size at fixed width. Unchanged text that fits full width measured
+>    **799.8px tall, 229px off the 720px canvas**, with a bullet sliced
+>    mid-line — while `pnpm check` stayed green, because the clipping is the
+>    section's `overflow: hidden` rather than element-level overflow. Task 001
+>    fixed this with one scoped helper class (see §1).
 
 ## Decisions already taken by the user
 
@@ -119,11 +140,12 @@ Resolved by judgment, recorded so no build agent has to guess:
    `.columns` cell.
 6. **Target roughly six to eight images per deck**, matching week 2's density.
    A target, not a quota — skip rather than force (§3).
-7. **Prototype before rollout.** Task 001 builds one `.columns` slide,
-   screenshots it at both viewports, and confirms it before any lane adopts
-   the pattern. The series' standing lesson is that screenshots catch what
-   every automated check misses; that applies to a new layout primitive most
-   of all.
+7. **Prototype before rollout — done, and it paid for itself.** Task 001 built
+   one `.columns` slide, screenshotted it at both viewports, and found that
+   plain `.columns` clipped 229px of text off the canvas *while `pnpm check`
+   stayed green*. Had the five lanes adopted the pattern untested, every one of
+   them would have hit it on their first slide. The series' standing lesson —
+   screenshots catch what every automated check misses — held exactly.
 
 ## 1. The layout scheme — three tiers
 
@@ -147,7 +169,26 @@ Resolved by judgment, recorded so no build agent has to guess:
 ```
 
 Blank lines around the inner markdown are required — MDX needs them to parse
-the block as markdown rather than raw HTML.
+the block as markdown rather than raw HTML. **The `##` heading stays outside
+the `.columns` div** — it spans the full canvas, and the grid starts beneath it
+at y=148.8.
+
+**The three constraints task 001 measured. Treat these as binding:**
+
+- **Text budget is ~13 wrapped lines per cell** (571px, from the grid top at
+  y=148.8 to the canvas bottom at 720, at the helper's 1.35rem/1.45). If a
+  slide's text needs more, **`.columns` is the wrong tier for it** — do not
+  shrink the text further and do not rewrite the prose (DoD #11). Use a
+  full-width layout or a background panel instead.
+- **Image height is set by cell width, not by `max-height`:** rendered height =
+  `544 / aspect_ratio`. 3:2 → 363px, 4:3 → 408px, 16:9 → 306px, 2:1 → 272px,
+  portrait/square → capped at 480px. A crop wider than about **2.7:1 falls
+  below the 200px floor in DoD #2** — avoid panoramas in a cell. Keep
+  `max-height: 480px`; it is what stops a portrait image running off-canvas.
+- **Both viewports are pixel-identical in canvas coordinates.** Reveal scales
+  one fixed 1280×720 canvas, so 375×812 only changes `scale` (1.0 → 0.293). A
+  layout that fits at one fits at both; 375×812 is a letterbox check, not a
+  second layout.
 
 **Tier 2 — `.compare`, for genuine pairs.** Already defined in
 `src/decks/theme.css` (flex, `figure { flex: 1 1 0; max-width: 44% }`,
@@ -167,9 +208,18 @@ image syntax"): `![bg]`, `![bg contain]`/`![bg cover]`,
 `![bg left:N%]`/`![bg right:N%]`, and filters `blur:`, `brightness:`,
 `saturate:`.
 
-**If `.columns` alone proves insufficient**, task 001 may add *one* narrow
-helper class to `src/decks/theme.css` — that file is shared by all twelve
-decks, so only task 001 touches it, and only once, before the lanes start.
+**`theme.css` is done — task 001 added exactly one helper class and no lane
+edits that file:**
+
+```css
+.columns :is(p, li) { font-size: 1.35rem; line-height: 1.45; }
+```
+
+It is scoped to `.columns`, so every full-width slide in all twelve decks keeps
+the 1.75rem step the decks were written against. It is what brings a text cell
+from 799.8px down to 497.9px. Do not re-add it, do not widen its scope, and do
+not add further shared classes — size **images** with per-image inline styles,
+as the lane task files require.
 
 ## 2. Per-week targets
 

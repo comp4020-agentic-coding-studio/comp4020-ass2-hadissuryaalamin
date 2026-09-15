@@ -11,9 +11,11 @@ Read `epic.md` first, especially "The diagnosis", §1 (the layout scheme), §2
 read `updates/001.md` for the exact `.columns` markup that was proven to work —
 copy it rather than re-deriving it.
 
-**Check `updates/001.md` for whether task 001 left its prototype in
-`week-05.deck.mdx` or reverted it.** You are inheriting that slide either way;
-know which.
+**Task 001 KEPT its prototype in `week-05.deck.mdx`.** The *What intact tissue
+keeps apart* slide is already converted to `.columns` and `garlic.jpg` now
+renders at 544×363 instead of 75px. **Do not re-convert that slide** — the
+worst image in the course is already fixed, and it is your working example of
+the pattern done correctly. Read it before you start.
 
 ## Scope — yours alone
 
