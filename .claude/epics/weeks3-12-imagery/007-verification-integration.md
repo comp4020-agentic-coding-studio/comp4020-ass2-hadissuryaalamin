@@ -92,3 +92,56 @@ from inside their own slice.
   `git diff` confirming they did not leak into the commit.
 - `updates/007.md` records every command's output, every fix-up made, and any
   defect found that was left unfixed with a reason.
+
+---
+
+## Already verified by the coordinating session (2026-09-16)
+
+Recorded so this task does not re-derive it. All of the following was checked
+**after lanes A and B completed**, at branch commit `4e356c4`. Re-check only if
+later lanes change these files.
+
+`pnpm check` — **green**, run by the coordinating session because lanes are
+forbidden from building:
+
+```
+Checked 48 pages — no accessibility violations.
+Checked 48 pages — all internal links respect base.
+Copied 58 deck asset(s) to build output.
+Checked 12 deck(s) — no structural violations.
+No broken links detected.
+Test Files 2 passed (2) | Tests 11 passed (11)
+```
+
+- **`SOURCES.md` 1:1 confirmed** for every changed week: week 3 8 files/8
+  credits, week 4 8/8, week 5 7/7, week 6 5/5.
+- **Referenced assets exactly equal on-disk assets** for weeks 3–6 — no
+  orphans, nothing missing.
+- **Weeks 1 and 2 untouched**, confirmed by `git diff` against `ba13739` on
+  both deck files and both asset directories.
+- **Branch scope clean**: only this epic's own directory, `src/decks/theme.css`,
+  the weeks 3–6 deck files, and the new week 5–6 assets. No lecture, session,
+  assessment, config or `src/data/` file was touched.
+- **DoD #3 satisfied for changed decks** — layout blocks per deck: week 3 six,
+  week 4 three, week 5 three, week 6 three.
+
+### Three images deliberately left at their original size
+
+All clear the 200px floor in DoD #2, so none is a violation, but they are the
+only images in weeks 3–6 not moved into a `.columns` or `.compare` layout.
+Confirm they still read acceptably during the walk, and either relayout or
+record the reason:
+
+| Deck | Image | Size | Note |
+|---|---|---|---|
+| week-03 | `salmon-myotomes.jpg` | 320px | Lane A judged it already adequate |
+| week-04 | `fridge-thermometer.jpg` | 220px | Not mentioned in lane A's report |
+| week-05 | `olive-oil.jpg` | 220px | Pre-existing, never clipped |
+
+### Still outstanding when this task runs
+
+Lanes C (weeks 7–8), D (weeks 9–10) and E (weeks 11–12) had not run at the time
+of writing. **Weeks 7–12 are therefore unchanged from `main`** — consistent and
+building cleanly, not half-finished. If those lanes are still `pending` when
+this task starts, scope the walk to the decks that actually changed and say so
+plainly rather than reporting a ten-deck walk that did not happen.
