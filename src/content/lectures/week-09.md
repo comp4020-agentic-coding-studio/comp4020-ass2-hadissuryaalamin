@@ -3,7 +3,7 @@ title: Fruit
 description: >-
   Varieties and what distinguishes them, where each is stored and why, how
   to choose well at the market, ripening treated as a schedulable process,
-  and the fat, protein and calorie content of three fruits common to this
+  and the fat, protein and calorie content of five fruits common to this
   course.
 week: 9
 date: 2027-04-19
@@ -41,6 +41,14 @@ links:
       USDA FoodData Central, "Oranges, raw, all commercial varieties"
       (FDC ID 169097): 47 kcal, 0.12 g fat, 0.94 g protein per 100 g
     url: https://fdc.nal.usda.gov/food-details/169097/nutrients
+  - label: >-
+      USDA FoodData Central, "Strawberries, raw" (FDC ID 167762): 32 kcal,
+      0.30 g fat, 0.67 g protein per 100 g
+    url: https://fdc.nal.usda.gov/food-details/167762/nutrients
+  - label: >-
+      USDA FoodData Central, "Mangos, raw" (FDC ID 169910): 60 kcal,
+      0.38 g fat, 0.82 g protein per 100 g
+    url: https://fdc.nal.usda.gov/food-details/169910/nutrients
 spec:
   - you can sort a supplied list of fruit into climacteric and
     non-climacteric, and say what that sorting changes about when you buy
@@ -92,26 +100,31 @@ deciding, rather than discovering, when it will be ready. A non-climacteric
 fruit offers no such choice: it must be bought at the ripeness it will be
 eaten at, because none is coming later.
 
-## Apple, banana and orange: fat, protein and calories per 100 g
+## Apple, banana, orange, strawberry and mango: fat, protein and calories per 100 g
 
 The invent-a-recipe assessment (week 6) asks for a nutritional composition
 traceable to a named food-composition database; fruit is a common component
 of that composition and deserves the same treatment as this course has
 already given vegetables and meat. Figures are per 100 g raw, from [USDA
-FoodData Central](https://fdc.nal.usda.gov/), one apple climacteric, one
-climacteric and typically eaten past its own ripening window, one
-non-climacteric.
+FoodData Central](https://fdc.nal.usda.gov/), for the five fruits this
+week's tutorial exercise draws on: the climacteric fruits here — apple,
+banana, mango — and the two non-climacteric fruits — orange and
+strawberry.
 
-| Fruit | Calories (kcal) | Fat (g) | Protein (g) | Source |
+| Fruit | Calories (kcal) | Fat (g) | Protein (g) | FDC ID |
 |---|---|---|---|---|
-| Apple, raw, with skin | 52 | 0.17 | 0.26 | FDC ID 171688 |
-| Banana, raw | 89 | 0.33 | 1.09 | FDC ID 173944 |
-| Orange, raw | 47 | 0.12 | 0.94 | FDC ID 169097 |
+| Apple, raw, with skin | 52 | 0.17 | 0.26 | 171688 |
+| Banana, raw | 89 | 0.33 | 1.09 | 173944 |
+| Orange, raw | 47 | 0.12 | 0.94 | 169097 |
+| Strawberries, raw | 32 | 0.30 | 0.67 | 167762 |
+| Mangos, raw | 60 | 0.38 | 0.82 | 169910 |
 
-The calorie spread across the three tracks sugar content more than
-anything else discussed this week; none of the three is a meaningful
+The calorie spread across the five tracks sugar content more than
+anything else discussed this week; none of the five is a meaningful
 source of fat or protein, which is worth stating so a recipe's protein
-total is not accidentally attributed to its fruit component.
+total is not accidentally attributed to its fruit component. This week's
+tutorial exercise uses the macro calculator on all five of these figures,
+drawn directly from FoodData Central.
 
 ## Afterwards
 
@@ -128,5 +141,5 @@ other side of the exchange.
   others
 - choosing well at market, fruit by fruit
 - ripening as a process that can be scheduled rather than waited on
-- fat, protein and calorie content per 100 g for apple, banana and orange,
-  sourced to USDA FoodData Central
+- fat, protein and calorie content per 100 g for apple, banana, orange,
+  strawberry and mango, sourced to USDA FoodData Central
