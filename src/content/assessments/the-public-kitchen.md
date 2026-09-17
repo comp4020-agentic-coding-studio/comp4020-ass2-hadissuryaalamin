@@ -70,16 +70,15 @@ and predictions are sometimes wrong. What is assessed is whether the
 student can identify where the prediction and the result diverge and say
 why.
 
-**Tester feedback.** The finished dish is also tasted by someone other than
-the student — the examiner, or another attendee at the same session — who
-gives a sensory report of it on the same four terms as the week 6
-prediction: colour, aroma, flavour, texture. This is not a measure of
-whether the dish was liked; the course's position, argued in week 5, is
-that nothing about preparation depends on taste perception, and a tester's
-approval carries no marks. What is assessed is narrower and more specific
-than correspondence: whether the student can obtain a structured report
-from a palate that is not their own and reconcile it with the week 6
-prediction, rather than relying only on their own tasting of the result.
+**Tester feedback.** The finished dish is also tasted by another attendee at
+the same session, who gives a sensory report of it on the same four terms as
+the week 6 prediction: colour, aroma, flavour, texture. This is not a measure
+of whether the dish was liked. Approval earns no marks and disappointment
+costs none; what a tester supplies is an observation, not a verdict. What
+separates this from correspondence is the source of that observation rather
+than its scope: whether the student can obtain a structured account from a
+palate that is not their own and reconcile it with the week 6 prediction,
+rather than relying only on their own tasting of the result.
 
 ## How it is marked
 
