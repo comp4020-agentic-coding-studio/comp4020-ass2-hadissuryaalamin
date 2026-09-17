@@ -8,3 +8,5 @@ author.
 - `chefs-knife.jpg` — File:Steelport 6-Inch Chef Knife (2026)-104A7331.jpg — <https://commons.wikimedia.org/w/index.php?curid=185676124> — CC BY-SA 4.0 — Frank Schulenburg (258KB)
 - `knife-set.jpg` — File:Knife holder.jpg — <https://commons.wikimedia.org/w/index.php?curid=8365526> — CC BY 2.0 — Rene Ehrhardt from Reading, United Kingdom (203KB)
 - `sharpening-stone.jpg` — File:Friedr Dick sharpening knife on grinding wheel.jpeg — <https://commons.wikimedia.org/w/index.php?curid=127392524> — CC BY 2.0 — Didriks from Cambridge, MA, USA (85KB)
+- `pinch-grip.jpg` — File:Pinchgrip.jpg — <https://commons.wikimedia.org/w/index.php?curid=72470513> — CC BY-SA 4.0 — Arntor (272KB)
+- `honing-steel.jpg` — File:Wiki Loves Mett P1020744, cropped.jpg — <https://commons.wikimedia.org/w/index.php?curid=89205712> — CC BY 3.0 de — Fridolin freudenfett (derivative crop by Jocian) (71KB)

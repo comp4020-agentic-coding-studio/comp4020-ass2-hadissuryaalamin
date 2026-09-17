@@ -42,3 +42,20 @@
   font-size: 0.7em;
   text-align: center;
 }
+
+/* The theme's `.columns` grid halves the text measure: a cell is 544px of the
+ * 1280px canvas, not 1120px. Wrapped text height goes with the square of
+ * font-size at a fixed width --- fewer characters per line *and* the same
+ * line-height on every extra line --- so the deck's 1.75rem body step, which
+ * fits full width, overruns the 720px canvas by some 230px once it is column
+ * width. The theme's own `flex-grow: 1` cannot save it: astromotion configures
+ * Reveal with `display: "grid"`, so a section is a grid container with
+ * `align-content: start` and the declaration never applies.
+ *
+ * So a two-column slide needs its own body step. This is the whole fix, and it
+ * is scoped to `.columns` so a full-width slide keeps the 1.75rem the decks
+ * were written against. */
+.columns :is(p, li) {
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
