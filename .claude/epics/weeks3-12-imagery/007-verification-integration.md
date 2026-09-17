@@ -138,10 +138,62 @@ record the reason:
 | week-04 | `fridge-thermometer.jpg` | 220px | Not mentioned in lane A's report |
 | week-05 | `olive-oil.jpg` | 220px | Pre-existing, never clipped |
 
-### Still outstanding when this task runs
+### SUPERSEDED — updated 2026-09-17, all five lanes are now complete
 
-Lanes C (weeks 7–8), D (weeks 9–10) and E (weeks 11–12) had not run at the time
-of writing. **Weeks 7–12 are therefore unchanged from `main`** — consistent and
-building cleanly, not half-finished. If those lanes are still `pending` when
-this task starts, scope the walk to the decks that actually changed and say so
-plainly rather than reporting a ten-deck walk that did not happen.
+The paragraph that stood here said lanes C, D and E had not run and that weeks
+7–12 were unchanged from `main`. **That is no longer true.** All five content
+lanes report `status: completed`, and **all ten decks (weeks 3–12) have
+changed.** Do the full ten-deck walk; do not scope it down.
+
+The `pnpm check` output recorded above was taken at commit `4e356c4`, after
+lanes A and B only. **It predates lanes C, D and E — re-run it.** The
+`SOURCES.md` parity and asset-reference figures above likewise cover only
+weeks 3–6.
+
+The coordinating session has since verified, at commit `a995ebd`:
+
+- `SOURCES.md` 1:1 with files on disk in **every** week 3–12: wk3 8/8, wk4 8/8,
+  wk5 7/7, wk6 5/5, wk7 5/5, wk8 4/4, wk9 6/6, wk10 5/5, wk11 4/4, wk12 5/5.
+- Referenced assets exactly equal on-disk assets in all ten decks.
+- `package.json` / `pnpm-lock.yaml` diff against `main` is **empty** — no lane
+  leaked a temporary Playwright dependency, including the one that self-reported
+  sweeping it in with `git commit -am` and then reverted it.
+- Weeks 1 and 2 untouched. `src/decks/theme.css` carries only task 001's helper
+  class (+17 lines) and nothing since.
+- One defect found and fixed by the coordinating session: `oranges.jpg`'s credit
+  line still recorded its pre-resize size after lane D shrank the file; it now
+  records 66KB and the resize. A 1:1 parity check does not catch a stale size —
+  **when you do the `SOURCES.md` cross-check, compare recorded sizes against the
+  files, not just the count.**
+
+### Baseline canvas overflow — a defect class that predates this epic
+
+Lane C discovered that **slides were already overflowing the 720px canvas on
+`main`**, with `pnpm check` green throughout, because the clipping is the
+section's `overflow: hidden` rather than element-level overflow. Status:
+
+| Deck | Slide | State |
+|---|---|---|
+| week-07 | "The working set", "The blade in profile", "Two different operations", "The standard cuts" | **fixed** by lane C |
+| week-09 | bananas `bg right` panel; `oranges.jpg` slide | **fixed** by lane D |
+| week-11 | "The thermometer decides" — overflows by 7px, both viewports | **OPEN — not fixed by any lane** |
+
+Week 11's is the one left. Lane E measured it, confirmed it never touched that
+slide, and left it as out of its scope. Fix it if cheap, or record why not.
+
+**This means weeks 1 and 2 may carry the same defect and nobody has looked.**
+They are outside this epic's scope to *edit*, but if you have a browser open,
+measuring them costs little and the finding is worth recording even if you
+change nothing.
+
+### Running Playwright
+
+The repo's `node_modules` has no Playwright — every lane installed it
+temporarily and removed it. Lane D avoided touching the repo at all by using an
+isolated scratch npm project outside the repo and importing it via
+`createRequire` with an absolute path. Chromium is already cached system-wide at
+`C:\Users\hadis\AppData\Local\ms-playwright`, so no re-download is needed.
+Either approach is fine — but whatever you do, `package.json` and
+`pnpm-lock.yaml` must show no content diff when you finish, and must never be
+staged. Do not use `git commit -am`; that is exactly how one lane swept the
+dependency in.
