@@ -43,12 +43,14 @@ that the examiner will be watching for before any heat is applied at all.
 A finished dish can look right and still have arrived there by an
 unrepeatable accident, or look wrong and still have been prepared correctly,
 with the difference explainable. The assessment's weighting reflects this:
-execution under the time limit is the single largest component, because it
-is the one condition this practical adds that no earlier week could test,
-but the preparation decisions leading up to it and their correspondence
-with the written account carry real weight too. This session's job is to
-make sure a student walks in already able to narrate that sequence, rather
-than discovering it under the clock for the first time.
+execution under the time limit carries 20, since the clock is a condition
+this practical adds rather than a discipline separate from preparation, and
+an independent taster's sensory report of the finished dish, reconciled
+against the week 6 prediction, carries a further 20; the preparation
+decisions leading up to the dish and their correspondence with the written
+account are the two heaviest components, at 30 each. This session's job is
+to make sure a student walks in already able to narrate that sequence,
+rather than discovering it under the clock for the first time.
 
 ## Rehearsal
 

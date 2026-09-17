@@ -2,7 +2,8 @@
 title: Final — the public kitchen
 description:
   The week 12 practical, assessed live — preparation decisions, execution
-  under time constraint, and whether the result matches what was predicted.
+  under time constraint, whether the result matches what was predicted, and
+  how the student handles an independent taster's report of it.
 week: 12
 due: 2027-05-10T12:00:00+10:00
 weight: 60
@@ -12,9 +13,11 @@ marking:
     - name: Preparation decisions
       weight: 30
     - name: Execution under time constraint
-      weight: 40
+      weight: 20
     - name: Correspondence with the earlier account
       weight: 30
+    - name: Tester feedback
+      weight: 20
 spec:
   - the dish prepared and cooked matches the recipe described in the
     invent-a-recipe assignment, or the departure is stated and explained
@@ -23,6 +26,9 @@ spec:
   - the dish is completed within the time allowance stated for the session
   - the student can account for any difference between the predicted
     sensory description and the finished dish
+  - the student presents a sensory report of the finished dish from a
+    taster other than themselves, on the same four terms as the week 6
+    prediction, and states where the two accounts agree or diverge
 related:
   - invent-a-recipe
 ---
@@ -64,11 +70,24 @@ and predictions are sometimes wrong. What is assessed is whether the
 student can identify where the prediction and the result diverge and say
 why.
 
+**Tester feedback.** The finished dish is also tasted by another attendee at
+the same session, who gives a sensory report of it on the same four terms as
+the week 6 prediction: colour, aroma, flavour, texture. This is not a measure
+of whether the dish was liked. Approval earns no marks and disappointment
+costs none; what a tester supplies is an observation, not a verdict. What
+separates this from correspondence is the source of that observation rather
+than its scope: whether the student can obtain a structured account from a
+palate that is not their own and reconcile it with the week 6 prediction,
+rather than relying only on their own tasting of the result.
+
 ## How it is marked
 
-The `marking` block above renders as a criterion table. Execution under
-time constraint carries the most weight, because it is the one condition
-this assessment adds that the invent-a-recipe assignment could not test.
-Preparation decisions and correspondence with the earlier account are
-weighted evenly: the course treats "deciding well" and "knowing whether the
-decision worked" as two halves of the same skill.
+The `marking` block above renders as a criterion table. Preparation
+decisions and correspondence with the earlier account carry the most
+weight, at 30 each: the course treats "deciding well" and "knowing whether
+the decision worked" as two halves of the same skill. Execution under time
+constraint and tester feedback are weighted evenly at 20 each — execution
+because the time limit is a condition of the session rather than a
+discipline separate from preparation, and tester feedback because it
+corroborates the student's own correspondence claim against an outside
+report rather than standing as an independent judgement of the dish.
