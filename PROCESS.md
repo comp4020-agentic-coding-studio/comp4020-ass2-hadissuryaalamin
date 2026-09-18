@@ -63,9 +63,9 @@ locally and correctly, and it compounded across eight decks. The theme already
 shipped an unused two-column grid; prototyping it first proved two claims in my
 own epic false.
 
-It caught my own mistakes too. An instruction I wrote into an epic made an
-assessment page cite a lecture that undercut it, and the agent faithfully wrote
-what I asked ([`ceee55a`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-hadissuryaalamin/commit/ceee55a)). Changing a rubric weight made a sentence elsewhere false
+Reading the built pages caught my own mistakes too. My epic told an assessment
+page to cite a lecture that undercut it, and the agent obeyed
+([`ceee55a`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-hadissuryaalamin/commit/ceee55a)). A rubric weight change falsified a sentence elsewhere
 ([`814fc71`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-hadissuryaalamin/commit/814fc71)).
 
 What I carry forward: write the constraints down first, make promises into
